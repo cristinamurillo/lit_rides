@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure: MyString
+  destination: MyString
+  time: 2018-10-22 17:43:09
+  duration: 2018-10-22 17:43:09
+  cost: 1
+  available_seats: 1
+  passenger_id: 1
+  driver_id: 1
+
+two:
+  departure: MyString
+  destination: MyString
+  time: 2018-10-22 17:43:09
+  duration: 2018-10-22 17:43:09
+  cost: 1
+  available_seats: 1
+  passenger_id: 1
+  driver_id: 1
