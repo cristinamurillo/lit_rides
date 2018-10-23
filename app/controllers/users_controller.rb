@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     if @user.update
       redirect_to @user
     else
+      set_user
       render :edit
     end
   end

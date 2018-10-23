@@ -12,9 +12,9 @@ helen = User.create(first_name:"Helen")
 graham = User.create(first_name:"Graham")
 
 
-ca = Ride.create(driver: cristina, destination: "California", departure: "New York", time: DateTime.now)
-fl = Ride.create(driver: arren, destination: "Florida")
-mn = Ride.create(driver: hanaa, destination: "Minnesota")
+ca = Ride.create(driver: hanaa, destination: "California", departure: "New York", time: DateTime.now)
+fl = Ride.create(driver: hanaa, destination: "Florida", departure: "Texas", time: DateTime.now)
+mn = Ride.create(driver: hanaa, destination: "Minnesota", departure: "Baltimore", time: DateTime.now)
 
 
 PassengerRide.create(passenger: arren, ride: mn)

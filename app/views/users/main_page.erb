@@ -2,15 +2,42 @@
 
 <h3><%= link_to "View Profile", @user %> </h3>
 <h3><%= link_to "Edit Profile", edit_user_path(@user) %> </h3>
+<hr>
+<h3>Driver</h3>
 
-<h3>Rides</h3>
+<h4><%= link_to "Post a Drive", new_ride_path %></h4>
 
+<h4>Upcoming Drives</h4>
 <% @user.drives.each do |ride|%>
 <ul>
-    <%= "Departure: #{ride.departure}"%> <br>
-    <%= "Destination: #{ride.destination}" %> <br>
-    <%= "Date: #{ride.time.strftime('%B %e')}" %> <br>
+<%# if ride.time >= DateTime.now %>
+    <%=button_to ride_path(ride) do%>
+    <div>
+    <%= render partial: 'rides', :locals => {:ride => ride} %>
+    </div>
+    <% end%>
+<%# end %>
 </ul>
 <% end %>
+
+<h4><%= link_to "Past Drives" %></h4>
+<hr>
+
+<h3>Passenger</h3>
+
+<%= link_to "Browse Rides", rides_path %>
+
+<h4>Upcoming Rides</h4>
+<% @user.rides.each do |ride|%>
+<ul>
+    <%=button_to ride_path(ride) do%>
+    <div>
+    <%= render partial: 'rides', :locals => {:ride => ride}  %>
+    </div>
+    <% end %>
+</ul>
+<% end %>
+
+<h4><%= link_to "Past Rides" %></h4>
 
 
