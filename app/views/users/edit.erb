@@ -1,0 +1,12 @@
+<h1> Edit User </h1>
+
+<% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |error|  %>
+        <%= error %>
+        <br>
+    <% end %>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= render partial: 'form', :locals => {:f => f} %>
+<% end %>

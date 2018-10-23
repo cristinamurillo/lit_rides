@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/users/:id/main_page", to: 'users#main_page'
+
   resources :passenger_rides
   resources :reviews
   resources :rides
