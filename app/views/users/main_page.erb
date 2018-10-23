@@ -1,1 +1,16 @@
-<h1> hello </h1>
+<h1> Welcome! </h1>
+
+<h3><%= link_to "View Profile", @user %> </h3>
+<h3><%= link_to "Edit Profile", edit_user_path(@user) %> </h3>
+
+<h3>Rides</h3>
+
+<% @user.drives.each do |ride|%>
+<ul>
+    <%= "Departure: #{ride.departure}"%> <br>
+    <%= "Destination: #{ride.destination}" %> <br>
+    <%= "Date: #{ride.time.strftime('%B %e')}" %> <br>
+</ul>
+<% end %>
+
+

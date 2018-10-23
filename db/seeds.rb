@@ -3,7 +3,7 @@ Ride.destroy_all
 PassengerRide.destroy_all
 Review.destroy_all
 
-hanaa = User.create(first_name:"Hanaa")
+hanaa = User.create(first_name:"Hanaa", last_name: "Sadoqi", email: "hana@gmail.com", password: "hello", age: 24)
 cristina = User.create(first_name:"Cristina")
 chris = User.create(first_name:"Chris")
 raj = User.create(first_name:"Raj")
@@ -12,7 +12,7 @@ helen = User.create(first_name:"Helen")
 graham = User.create(first_name:"Graham")
 
 
-ca = Ride.create(driver: cristina, destination: "California")
+ca = Ride.create(driver: cristina, destination: "California", departure: "New York", time: DateTime.now)
 fl = Ride.create(driver: arren, destination: "Florida")
 mn = Ride.create(driver: hanaa, destination: "Minnesota")
 
