@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :passenger_rides
   resources :reviews
   resources :rides
   resources :users

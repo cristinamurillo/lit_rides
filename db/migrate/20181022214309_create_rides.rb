@@ -7,7 +7,7 @@ class CreateRides < ActiveRecord::Migration[5.2]
       t.time :duration
       t.integer :cost
       t.integer :available_seats
-      t.integer :passenger_id
+      # t.integer :passenger_id
       t.integer :driver_id
 
       t.timestamps
