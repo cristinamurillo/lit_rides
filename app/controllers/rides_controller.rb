@@ -11,15 +11,15 @@ class RidesController < ApplicationController
       ride_search = Ride.search(params[:search])
       @rides = Ride.search(params[:search])
     end
-    
+
     if ride_search && ride_dates
-      @rides = ride_dates & ride_search 
+      @rides = ride_dates & ride_search
     end
 
-    if @rides == nil 
+    if @rides == nil
       # flash[:message] = "nope"
-      @rides = Ride.all 
-    end 
+      @rides = Ride.all
+    end
 
 
     params.delete :search

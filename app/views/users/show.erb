@@ -1,0 +1,33 @@
+<h1><%= @user.full_name %></h1>
+<h2><%= @user.age %> years old</h2>
+
+<h2>About Me:</h2>
+<p><%= @user.about_me %></p>
+
+<h2>Lit Ride: <%= @user.car_type %></h2>
+
+<h2>Preferences:</h2>
+<p> Smoker? <% if @user.smoking %>
+  <%= "🚬 "%>
+  <% else %>
+  <%= "🙅‍♀️"%>
+<% end %></p>
+<p> Pets? <% if @user.pets %>
+  <%= "🐶 "%>
+  <% else %>
+  <%= "💀"%>
+<% end %></p>
+<p> How Lit?:
+<% case @user.engagement %>
+  <% when 1 %>
+  <%= "🚬 "%>
+  <% when 2 %>
+  <%= "🙅‍♀️"%>
+  <% when 3 %>
+  <%= "🙅‍♀️"%>
+<% end %></p>
+
+<h2> Upcoming Drives </h2>
+<% @user.drives.each do |ride| %>
+  <%= render partial: '/users/rides', :locals => {:ride => ride} %>
+<% end %>
