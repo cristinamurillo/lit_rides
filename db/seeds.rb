@@ -36,7 +36,7 @@ Review.destroy_all
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    password_digest: "hello",
+    password_digest: BCrypt::Password.create('etsy'),
     age: Faker::Number.between(18, 55),
     car_type: Faker::Vehicle.make_and_model,
     about_me: Faker::Lorem.paragraph,
@@ -55,7 +55,7 @@ end
     available_seats: Faker::Number.between(1, 5),
     driver_id: Faker::Number.between(1, 10)
   )
-end 
+end
 
 60.times do
   PassengerRide.create(

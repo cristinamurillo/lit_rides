@@ -12,7 +12,7 @@
 <%# end %>
 <% end %>
 
-<h4><%= link_to "Past Drives" %></h4>
+<h4><%= link_to "Past Drives", past_drives_path(@user) %></h4>
 <h4><%= link_to "Post a Drive", new_ride_path %></h4>
 <hr>
 
@@ -23,5 +23,5 @@
     <%= render partial: 'rides', :locals => {:ride => ride}  %>
 <% end %>
 
-<h4><%= link_to "Past Rides" %></h4>
+<h4><%= link_to "Past Rides", past_rides_path(@user) %></h4>
 <%= link_to "Browse Rides", rides_path %>

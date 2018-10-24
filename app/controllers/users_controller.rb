@@ -3,6 +3,14 @@ class UsersController < ApplicationController
     set_user
   end
 
+  def past_drives
+    set_user
+  end
+
+  def past_rides
+    set_user
+  end
+
   def show
     set_user
   end
