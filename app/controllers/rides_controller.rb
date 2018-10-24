@@ -11,15 +11,15 @@ class RidesController < ApplicationController
       ride_search = Ride.search(params[:search])
       @rides = Ride.search(params[:search])
     end
-    
+
     if ride_search && ride_dates
-      @rides = ride_dates & ride_search 
+      @rides = ride_dates & ride_search
     end
 
-    if @rides == nil 
+    if @rides == nil
       # flash[:message] = "nope"
-      @rides = Ride.all 
-    end 
+      @rides = Ride.all
+    end
 
 
     params.delete :search
@@ -36,6 +36,7 @@ class RidesController < ApplicationController
 
   def create
     @ride = Ride.new(ride_params)
+    @ride.driver_id = logged_in_user_id
     if @ride.valid?
       @ride.save
       redirect_to @ride

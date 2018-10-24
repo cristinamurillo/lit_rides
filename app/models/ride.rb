@@ -10,7 +10,7 @@ class Ride < ApplicationRecord
 
 
     def self.date_filter(date)
-      
+
        user_search_date = Date.new(date["(1i)"].to_i, date["(2i)"].to_i, date["(3i)"].to_i)
        rides = Ride.select{|ride| user_search_date == ride.time.to_date}
 
@@ -18,15 +18,17 @@ class Ride < ApplicationRecord
 
     def self.search(search)
       if search
-        rides = Ride.select {|ride| ride.departure.downcase == search.downcase}
+        rides = Ride.select do |ride|
+          ride.departure.downcase.include?(search.downcase)
+          # byebug
+        end
         if rides != []
           rides
         else
-          return nil 
+          return nil
         end
       else
         Ride.all
       end
     end
 end
-
