@@ -1,7 +1,7 @@
 class RidesController < ApplicationController
 
   def index
-    @rides = Ride.all
+    @rides = Ride.search(params[:search])
   end
 
   def show
@@ -15,11 +15,11 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     if @ride.valid?
-      @ride.save 
+      @ride.save
       redirect_to @ride
-    else 
-      render :new 
-    end 
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,13 +27,13 @@ class RidesController < ApplicationController
   end
 
   def update
-    set_ride 
-    if @ride.update 
+    set_ride
+    if @ride.update
       redirect_to ride_path(@ride)
-    else 
+    else
       set_ride
-      render :edit 
-    end 
+      render :edit
+    end
   end
 
   def destroy
@@ -41,9 +41,9 @@ class RidesController < ApplicationController
 
   private
 
-  def set_ride 
+  def set_ride
     @ride = Ride.find(params[:id])
-  end 
+  end
 
   def ride_params
     ride = params[:ride]

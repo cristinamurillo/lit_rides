@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to "/users/#{@user.id}/main_page"
     else
       flash[:errors] = ["SrRY. Either you don't have an account or you're a troll."]
-      byebug
+      # byebug
       redirect_to new_session_path
     end
   end

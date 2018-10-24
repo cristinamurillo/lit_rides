@@ -1,0 +1,10 @@
+<h1> Browse Rides </h1>
+
+<%= form_tag(rides_path, method: :get) do %>
+   <%= text_field_tag :search, params[:search] %>
+   <%= submit_tag 'Search' %>
+<% end %>
+
+<% @rides.each do |ride| %>
+  <%= render partial: '/users/rides', :locals => {:ride => ride} %>
+<% end %>
