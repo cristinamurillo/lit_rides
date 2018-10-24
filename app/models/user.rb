@@ -17,12 +17,13 @@ class User < ApplicationRecord
     # #reviews of the driver by passengers
     # has_many :driver_reviews, through: :drives, source: :reviews
 
+
     validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-    validates :password, presence: true
     validates :first_name, presence:true, length: {minimum: 2}
     validates :last_name, presence:true, length: {minimum: 2}
     validates :age, presence: true, numericality: {greater_than_or_equal_to: 18}
 
+    has_secure_password
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_23_132804) do
+ActiveRecord::Schema.define(version: 2018_10_24_140702) do
 
   create_table "passenger_rides", force: :cascade do |t|
     t.integer "passenger_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_132804) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
     t.integer "age"

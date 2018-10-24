@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def main_page
     set_user
-    
   end
 
   def show
@@ -18,7 +17,9 @@ class UsersController < ApplicationController
       @user.save
       redirect_to @user
     else
-      render :new
+      flash[:errors] = @user.errors.full_messages
+      # byebug
+      redirect_to new_user_path
     end
   end
 
