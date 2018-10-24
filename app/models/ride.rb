@@ -8,22 +8,21 @@ class Ride < ApplicationRecord
 
     has_many :reviews
 
-    # def ride_display
-    #     "#{self.departure} \n#{self.destination} \n#{self.time.strftime('%B %e')}"
-    # end
+
+    def self.date_filter(date)
+      
+       user_search_date = Date.new(date["(1i)"].to_i, date["(2i)"].to_i, date["(3i)"].to_i)
+       rides = Ride.select{|ride| user_search_date == ride.time.to_date}
+
+    end
 
     def self.search(search)
       if search
-        rides = Ride.select {|ride| ride.departure == search}
-        # if departure
-        #   self.where(departure: departure)
+        rides = Ride.select {|ride| ride.departure.downcase == search.downcase}
         if rides != []
-          # byebug
           rides
         else
-        # flash[:errors] = ["There are no rides from that departure"]
-        # byebug
-        Ride.all
+          return nil 
         end
       else
         Ride.all
@@ -31,4 +30,3 @@ class Ride < ApplicationRecord
     end
 end
 
-# .strftime("%B %e")

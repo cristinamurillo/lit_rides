@@ -2,8 +2,15 @@
 
 <%= form_tag(rides_path, method: :get) do %>
    <%= text_field_tag :search, params[:search] %>
+   <%= date_select :date, params[:date] %>
    <%= submit_tag 'Search' %>
 <% end %>
+<br>
+
+<%# form_tag(rides_path, method: :get) do%>
+  <%#date_select :date, params[:date] %>
+  <%#submit_tag 'Select' %>
+<%#end%>
 
 <% @rides.each do |ride| %>
   <%= render partial: '/users/rides', :locals => {:ride => ride} %>
