@@ -15,14 +15,10 @@ class Ride < ApplicationRecord
     def self.search(search)
       if search
         rides = Ride.select {|ride| ride.departure == search}
-        # if departure
-        #   self.where(departure: departure)
         if rides != []
           # byebug
           rides
         else
-        # flash[:errors] = ["There are no rides from that departure"]
-        # byebug
         Ride.all
         end
       else
