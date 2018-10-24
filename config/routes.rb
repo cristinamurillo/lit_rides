@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "/users/:id/past_drives", to: 'users#past_drives', as: 'past_drives'
   get "/users/:id/main_page", to: 'users#main_page'
 
+  get "/rides/:id/travelers", to: 'rides#travelers'
+  
   resources :passenger_rides
   resources :reviews
   resources :rides

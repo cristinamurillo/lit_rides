@@ -34,6 +34,11 @@ class RidesController < ApplicationController
     @ride = Ride.new
   end
 
+  def travelers
+    set_ride 
+    @review = Review.new 
+  end
+
   def create
     @ride = Ride.new(ride_params)
     @ride.driver_id = logged_in_user_id

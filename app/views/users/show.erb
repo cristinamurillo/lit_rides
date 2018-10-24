@@ -7,12 +7,14 @@
 <h2>Lit Ride: <%= @user.car_type %></h2>
 
 <h2>Preferences:</h2>
-<p> Smoker? <% if @user.smoking %>
-  <%= "🚬 "%>
-  <% else %>
-  <%= "🙅‍♀️"%>
+<p> Smoker? 
+<% if @user.smoking %>
+    <%= "🚬 "%>
+    <% else %>
+    <%= "🙅‍♀️"%>
 <% end %></p>
-<p> Pets? <% if @user.pets %>
+<p> Pets? 
+<% if @user.pets %>
   <%= "🐶 "%>
   <% else %>
   <%= "💀"%>
