@@ -1,7 +1,29 @@
 class RidesController < ApplicationController
 
   def index
-    @rides = Ride.search(params[:search])
+    #date filter (search by date)
+    if params[:date]
+      ride_dates = Ride.date_filter(params[:date])
+      @rides = Ride.date_filter(params[:date])
+    end
+
+    if params[:search]
+      ride_search = Ride.search(params[:search])
+      @rides = Ride.search(params[:search])
+    end
+    
+    if ride_search && ride_dates
+      @rides = ride_dates & ride_search 
+    end
+
+    if @rides == nil 
+      # flash[:message] = "nope"
+      @rides = Ride.all 
+    end 
+
+
+    params.delete :search
+    params.delete :date
   end
 
   def show
