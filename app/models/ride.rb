@@ -18,7 +18,10 @@ class Ride < ApplicationRecord
 
     def self.search(search)
       if search
-        rides = Ride.select {|ride| ride.departure.downcase == search.downcase}
+        rides = Ride.select do |ride|
+          ride.departure.downcase.include?(search.downcase)
+          # byebug
+        end
         if rides != []
           rides
         else
