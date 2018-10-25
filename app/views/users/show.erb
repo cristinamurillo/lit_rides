@@ -33,3 +33,10 @@
 <% @user.drives.each do |ride| %>
   <%= render partial: '/users/rides', :locals => {:ride => ride} %>
 <% end %>
+
+<hr>
+
+<h2> Reviews </h2>
+<% @user.reviews.each do |review|%>
+  <%= render partial: '/reviews/display', :locals => {:review => review} %>
+<% end%>
