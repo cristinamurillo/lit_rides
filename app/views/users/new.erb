@@ -1,5 +1,7 @@
 <h1> Create User </h1>
 
+<%= flash['notice'] %>
+
 <%= form_for @user do |f| %>
   <%= f.label :email %><br>
   <%= f.text_field :email %>

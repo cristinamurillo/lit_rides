@@ -6,7 +6,7 @@ class Ride < ApplicationRecord
     #set up join table and has many relationship.... ya
 
 
-    has_many :reviews 
+    has_many :reviews
 
     validates_presence_of :departure, :destination, :time, :cost, :available_seats
 
@@ -15,12 +15,12 @@ class Ride < ApplicationRecord
     end
 
 
-    def self.date_filter(date)
-
-       user_search_date = Date.new(date["(1i)"].to_i, date["(2i)"].to_i, date["(3i)"].to_i)
-       rides = Ride.select{|ride| user_search_date == ride.time.to_date}
-
-    end
+    # def self.date_filter(date)
+    #
+    #    user_search_date = Date.new(date["(1i)"].to_i, date["(2i)"].to_i, date["(3i)"].to_i)
+    #    rides = Ride.select{|ride| user_search_date == ride.time.to_date}
+    #
+    # end
 
     def self.search(search)
       if search
@@ -37,13 +37,16 @@ class Ride < ApplicationRecord
         Ride.all
       end
     end
-    
+
 end
 
 #helper methods
 
 def upcoming_rides(rides)
-  rides.select do |ride|
-    ride.time >= DateTime.now 
+  ride_array = rides.select do |ride|
+    ride.time >= DateTime.now
+  end
+  ride_array.sort_by do |ride|
+    ride.time
   end
 end
