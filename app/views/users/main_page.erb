@@ -53,7 +53,7 @@
     <h4><%= "No Reviews Yet" %></h4>
   <% else %>
     <% @user.reviews.each do |review|%>
-        <%= link_to review.title, review %> Rating: <%= review.rating %>
+        Review: <%= link_to review.title, review %> Rating: <%= review.rating %>
     <% end%>
   <% end %>
 

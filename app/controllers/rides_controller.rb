@@ -35,6 +35,8 @@ class RidesController < ApplicationController
   def add_passenger
     @user = User.find(logged_in_user_id)
     @user.rides << set_ride
+    @ride.available_seats -= 1
+    # @message = params[:message]
     redirect_to "/users/#{logged_in_user_id}/main_page"
   end
 

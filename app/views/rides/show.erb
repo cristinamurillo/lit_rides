@@ -2,11 +2,21 @@
 <%= render partial: 'display', :locals => {:ride => @ride} %>
 <br><br>
 <% if @ride.time > DateTime.now && @ride.has_seats?%>
-     <%= form_tag apply_path, method: :get do %>
-     <%= hidden_field_tag "id", @ride.id%>
-     <%= submit_tag 'Apply to join!' %>
-     <% end%>
+    <% if @user == @ride.driver %>
+        <% if @ride.passengers.empty? %>
+          <%= "No one has applied to join your ride!" %>
+        <% else %>
+          <h3><%= "Passengers who want to get Lit:" %></h3>
+          <% @ride.passengers.each do |passenger| %>
+            <%= link_to passenger.full_name, passenger %>
+          <% end %>
+        <% end %>
+    <% else %>
+      <%= form_tag apply_path, method: :get do %>
+        <%= hidden_field_tag "id", @ride.id%>
+        <%= submit_tag "Get Lit with #{@ride.driver.full_name}" %>
+      <% end %>
+    <% end %>
  <% elsif @user.has_ride?(@ride)%>
     <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers" %>
  <% end%>
-

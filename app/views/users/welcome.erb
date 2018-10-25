@@ -1,5 +1,12 @@
 <h1> Get Lit with Lit Rides </h1>
 <p> What would you like to do? </p>
 
-<%= link_to "Log In", login_path %><br>
-<%= link_to "Sign Up", new_user_path %>
+<% if session[:user_id] == nil %>
+  <%= link_to "Log In", login_path %><br>
+  <%= link_to "Sign Up", new_user_path %>
+<% else %>
+  <%= "You are already logged in!" %><br>
+  <%= link_to "Continue to Dashboard", "users/#{session[:user_id]}/main_page" %><br>
+  <%= link_to "Browse Rides", rides_path %><br>
+  <%= link_to "Log Out", logout_path %>
+<% end %>

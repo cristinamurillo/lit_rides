@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      redirect_to @user
+      redirect_to "/users/#{@user.id}/main_page"
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to new_user_path
