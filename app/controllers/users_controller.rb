@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
   before_action :require_login
   # before_action -> {authorized?(params[:id])}, except: [:show, :new, :create]
-  skip_before_action :require_login, only: [:show, :new, :create]
+  skip_before_action :require_login, only: [:show, :new, :create, :welcome]
+
+  def welcome
+  end
+
+  def account
+    set_user
+    authorization
+  end
 
   def main_page
     set_user
@@ -39,12 +47,14 @@ class UsersController < ApplicationController
 
   def edit
     set_user
+    authorization
   end
 
   def update
     set_user
-    if @user.update
-      redirect_to @user
+    authorization
+    if @user.update(user_params)
+      redirect_to "/users/#{@user.id}/main_page"
     else
       set_user
       render :edit

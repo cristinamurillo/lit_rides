@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/users/:id/account', to: 'users#account', as: 'account'
+
+  root to: 'users#welcome'
+
 
 
   resources :passenger_rides

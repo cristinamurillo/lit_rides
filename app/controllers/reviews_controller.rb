@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
   def update
     set_review
-    if @review.update
+    if @review.update(reviews_params)
       redirect_to @review
     else
       render :edit

@@ -38,7 +38,7 @@ class RidesController < ApplicationController
 
   def travelers
     set_ride
-    # @review = Review.new 
+    # @review = Review.new
   end
 
   def create
@@ -58,7 +58,7 @@ class RidesController < ApplicationController
 
   def update
     set_ride
-    if @ride.update
+    if @ride.update(ride_params)
       redirect_to ride_path(@ride)
     else
       set_ride
