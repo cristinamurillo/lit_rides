@@ -11,7 +11,7 @@ class Ride < ApplicationRecord
     validates_presence_of :departure, :destination, :time, :cost, :available_seats
 
     def has_seats?
-      self.available_seats < self.passengers.count
+      self.available_seats > self.passengers.count
     end
 
 

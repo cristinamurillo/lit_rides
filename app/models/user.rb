@@ -54,7 +54,7 @@ class User < ApplicationRecord
     end
 
     def past_rides
-        self.drives.select do |ride|
+        self.rides.select do |ride|
             ride.time < DateTime.now 
         end
     end 
