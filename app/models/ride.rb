@@ -6,7 +6,7 @@ class Ride < ApplicationRecord
     #set up join table and has many relationship.... ya
 
 
-    has_many :reviews
+    has_many :reviews 
 
 
     def self.date_filter(date)

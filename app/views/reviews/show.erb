@@ -1,0 +1,18 @@
+<h2><%= @review.title %></h2>
+
+<% case @review.rating%> 
+<% when 1%>
+   <h1> <%= "💩 "%></h1>
+<% when 2%>
+    <h1><%= "😷😷" %></h1>
+<% when 3%>
+    <h1><%= "😐😐😐" %></h1>
+<% when 4%>
+    <h1><%= "💁💁💁💁" %></h1>
+<% when 5%>
+    <h1><%= "💃💃💃💃💃" %></h1>
+<% end%>
+
+<h4><%= @review.content %></h4>
+
+<%# link_to @user.full_name, @user %> 

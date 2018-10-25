@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+    
     has_many :drives, foreign_key: 'driver_id', class_name: 'Ride'
 
     has_many :passenger_rides, foreign_key: :passenger_id, class_name: 'PassengerRide'

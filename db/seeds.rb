@@ -5,31 +5,6 @@ Ride.destroy_all
 PassengerRide.destroy_all
 Review.destroy_all
 
-# hanaa = User.create(first_name:"Hanaa", last_name: "Sadoqi", email: "hana@gmail.com", password: "hello", age: 24)
-# cristina = User.create(first_name:"Cristina")
-# chris = User.create(first_name:"Chris")
-# raj = User.create(first_name:"Raj")
-# arren = User.create(first_name:"Arren")
-# helen = User.create(first_name:"Helen")
-# graham = User.create(first_name:"Graham")
-#
-#
-# ca = Ride.create(driver: hanaa, destination: "California", departure: "New York", time: DateTime.now)
-# fl = Ride.create(driver: hanaa, destination: "Florida", departure: "Texas", time: DateTime.now)
-# mn = Ride.create(driver: hanaa, destination: "Minnesota", departure: "Baltimore", time: DateTime.now)
-#
-#
-# PassengerRide.create(passenger: arren, ride: mn)
-# PassengerRide.create(passenger: graham, ride: mn)
-# PassengerRide.create(passenger: graham, ride: ca)
-# PassengerRide.create(passenger: raj, ride: ca)
-# PassengerRide.create(passenger: chris, ride: fl)
-# PassengerRide.create(passenger: helen, ride: fl)
-# PassengerRide.create(passenger: hanaa, ride: fl)
-#
-# Review.create(rating: 5, ride_id: ca.id)
-# Review.create(rating: 4, ride_id: ca.id)
-# Review.create(rating: 4, ride_id: fl.id)
 
 20.times do
   User.create(
@@ -60,6 +35,15 @@ end
 60.times do
   PassengerRide.create(
     passenger_id: Faker::Number.between(11, 20),
+    ride_id: Faker::Number.between(1, 40)
+  )
+end
+
+50.times do 
+  Review.create(
+    title: Faker::Hipster.sentence,
+    rating: Faker::Number.between(1, 5),
+    content: Faker::Hipster.paragraph,
     ride_id: Faker::Number.between(1, 40)
   )
 end

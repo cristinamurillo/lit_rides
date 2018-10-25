@@ -1,7 +1,7 @@
 #link to ride show page
 <h2>Driver: <%= link_to "#{@ride.driver.full_name}", @ride.driver %>
 <%= form_tag new_review_path, method: :get do %>
-     <%= hidden_field_tag "driver", @ride.driver.id%>
+     <%= hidden_field_tag "user", @ride.driver.id%>
     <%= submit_tag 'Write a Review' %>
     <% end%>
 
@@ -10,7 +10,7 @@
     <%= link_to passenger.full_name, passenger %>
 
     <%= form_tag new_review_path, method: :get do %>
-     <%= hidden_field_tag "passenger", passenger.id%>
-    <%= submit_tag 'Write a Review' %>
+     <%= hidden_field_tag "user", passenger.id%>
+     <%= submit_tag 'Write a Review' %>
 <% end %>
 <% end%>

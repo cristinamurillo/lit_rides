@@ -1,0 +1,13 @@
+<p>Title <br>
+<%= f.text_field :title %></p>
+
+<p>Rating
+<%= f.select "rating", options_for_select((1..5).step(1))%></p>
+
+
+<p>Tell us how you really feel <br>
+<%= f.text_area :content %></p>
+
+
+
+<%= f.submit %>
