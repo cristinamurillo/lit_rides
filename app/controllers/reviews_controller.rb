@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   def new
     # byebug
     @user = User.find(params[:user].to_i)
-    @review = Review.new 
+    @review = Review.new
   end
 
   def create
@@ -22,12 +22,22 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    set_review
   end
 
   def update
+    set_review
+    if @review.update
+      redirect_to @review
+    else
+      render :edit
+    end
   end
 
   def destroy
+    set_review
+    @review.destroy
+    redirect_to @ride
   end
 
   private

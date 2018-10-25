@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    
+
     has_many :drives, foreign_key: 'driver_id', class_name: 'Ride'
 
     has_many :passenger_rides, foreign_key: :passenger_id, class_name: 'PassengerRide'
@@ -29,7 +29,22 @@ class User < ApplicationRecord
       "#{self.first_name} #{self.last_name}"
     end
 
+    # def driver_reviews
+    #   self.drives.map do |drive|
+    #     drive.reviews
+    #   end
+    # end
+
+    #How do we add passengers to a ride?
+    #How do we associate rides to travelers?
+    #How do we associate reviews to travelers through rides?
 
 
+    # def passenger_reviews
+    #   self.rides.map do |ride|
+    #     ride.reviews
+    #   end
+        # iterate through reviews to find the one associated with that specific passenger
+    # end
 
 end
