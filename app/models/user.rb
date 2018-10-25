@@ -59,6 +59,10 @@ class User < ApplicationRecord
         end
     end 
 
+    def has_ride?(ride)
+        self.past_rides.include?(ride)
+    end
+
 
     # def driver_reviews
     #   self.drives.map do |drive|

@@ -8,6 +8,12 @@ class Ride < ApplicationRecord
 
     has_many :reviews 
 
+    validates_presence_of :departure, :destination, :time, :cost, :available_seats
+
+    def has_seats?
+      self.available_seats < self.passengers.count
+    end
+
 
     def self.date_filter(date)
 

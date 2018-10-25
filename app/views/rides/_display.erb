@@ -1,0 +1,9 @@
+<%= "#{ride.departure} - #{ride.destination}"%> <br>
+<%= "Date: #{ride.time.to_date}" %> <br>
+<%= "Time of Departure: #{ride.time.strftime('%H:%M')}" %><br>
+<p>Driver Profile: <%= link_to ride.driver.full_name, user_path(ride.driver)%></p> 
+
+<br>
+<%#= "Duration of Trip: #{ride.duration}" %><%#br%>
+<%= "Number of Available Seats: #{ride.available_seats}" %><br>
+<%= "Cost Per Seat: $#{ride.cost}" %>

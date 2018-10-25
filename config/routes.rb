@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   root to: 'users#welcome'
 
+  get '/apply', to: 'rides#apply', as: 'apply'
+  post '/add_passenger', to: 'rides#add_passenger', as: 'add_passenger'
 
 
   resources :passenger_rides

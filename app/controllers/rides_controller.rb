@@ -28,8 +28,19 @@ class RidesController < ApplicationController
     params.delete :date
   end
 
+  def apply
+    set_ride
+  end
+
+  def add_passenger
+    @user = User.find(logged_in_user_id)
+    @user.rides << set_ride
+    redirect_to "/users/#{logged_in_user_id}/main_page"
+  end
+
   def show
     set_ride
+    @user = User.find(logged_in_user_id)
   end
 
   def new
