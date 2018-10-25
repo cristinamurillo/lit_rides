@@ -41,6 +41,19 @@
   box-sizing: border-box;
 }
 
+/* my random adds to this mess */
+
+#mainNav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
+
+
+
+/* end my random stuff */
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -828,11 +841,11 @@ pre code {
   margin-left: 91.666667%;
 }
 /* internet stuff */
-@media (max-width: 979px) {
+/* @media (max-width: 979px) {
   body {
     padding-top: 0px;
   }
-}
+} */
 
 @media (min-width: 576px) {
   .col-sm {
@@ -2818,14 +2831,15 @@ fieldset:disabled a.btn {
 
 .btn-outline-light {
   color: #f8f9fa;
-  background-color: transparent;
+  background-color: #2C3E50;
   background-image: none;
   border-color: #f8f9fa;
 }
 
+
 .btn-outline-light:hover {
-  color: #212529;
-  background-color: #f8f9fa;
+  color: #f8f9fa;
+  background-color: #57C0D1;
   border-color: #f8f9fa;
 }
 
@@ -6082,7 +6096,7 @@ button.close {
 }
 
 .bg-primary {
-  background-color: #007bff !important;
+  background-color: #A4B3B6 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -6091,8 +6105,9 @@ button.bg-primary:focus {
   background-color: #0062cc !important;
 }
 
+/* navbar color smh */
 .bg-secondary {
-  background-color: #6c757d !important;
+  background-color: #5C1CBE !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -9001,7 +9016,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
   body {
     min-width: 992px !important;
-    padding-top: 65px; 
+    /* padding-top: 65px;  */
   }
   .container {
     min-width: 992px !important;

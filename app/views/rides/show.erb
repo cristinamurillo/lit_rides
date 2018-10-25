@@ -1,4 +1,5 @@
 
+<div class="container">
 <%= render partial: 'display', :locals => {:ride => @ride} %>
 <br><br>
 <% if @ride.time > DateTime.now && @ride.has_seats?%>
@@ -14,9 +15,14 @@
     <% else %>
       <%= form_tag apply_path, method: :get do %>
         <%= hidden_field_tag "id", @ride.id%>
-        <%= submit_tag "Get Lit with #{@ride.driver.full_name}" %>
+        <%= submit_tag "Get Lit with #{@ride.driver.full_name}", :class=> "btn btn-xl btn-outline-light" %>
       <% end %>
     <% end %>
  <% elsif @user.has_ride?(@ride)%>
-    <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers" %>
+    class= "btn btn-xl btn-outline-light"
+    <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers", :class=> "btn btn-xl btn-outline-light"%>
+    
  <% end%>
+ </div>
+
+
