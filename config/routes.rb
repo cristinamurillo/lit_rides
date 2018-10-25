@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "/rides/:id/travelers", to: 'rides#travelers'
 
+  root to: 'users#welcome'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

@@ -67,7 +67,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
-  padding-top: 65px; 
+  padding-top: 120px; 
 }
 
 [tabindex="-1"]:focus {
@@ -3978,6 +3978,7 @@ input[type="button"].btn-block {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  color: #6610f2;
 }
 
 .navbar > .container,
@@ -9000,6 +9001,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
   body {
     min-width: 992px !important;
+    padding-top: 65px; 
   }
   .container {
     min-width: 992px !important;
