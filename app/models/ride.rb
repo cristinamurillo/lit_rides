@@ -31,4 +31,13 @@ class Ride < ApplicationRecord
         Ride.all
       end
     end
+    
+end
+
+#helper methods
+
+def upcoming_rides(rides)
+  rides.select do |ride|
+    ride.time >= DateTime.now 
+  end
 end

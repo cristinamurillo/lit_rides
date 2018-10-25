@@ -37,13 +37,13 @@ class User < ApplicationRecord
 
     def upcoming_drives
         self.drives.select do |drive|
-            drive.time > DateTime.now 
+            drive.time >= DateTime.now 
         end
     end
 
     def upcoming_rides 
         self.drives.select do |ride|
-            ride.time > DateTime.now 
+            ride.time >= DateTime.now 
         end
     end
 

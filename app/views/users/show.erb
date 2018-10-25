@@ -29,10 +29,12 @@
   <%= "🙅‍♀️"%>
 <% end %></p>
 
-<h2> Upcoming Drives </h2>
-<% @user.upcoming_drives.each do |ride| %>
-    <%= render partial: '/users/rides', :locals => {:ride => ride} %>
-<% end %>
+<% unless @user.upcoming_drives.empty? %>
+  <h2> Upcoming Drives </h2>
+  <% @user.upcoming_drives.each do |ride| %>
+      <%= render partial: '/users/rides', :locals => {:ride => ride} %>
+  <% end %>
+<% end%>
 
 <hr>
 
