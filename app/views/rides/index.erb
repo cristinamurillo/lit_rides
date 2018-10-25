@@ -1,14 +1,20 @@
-<h1> Browse Rides </h1>
-<div class="container">
-<%= form_tag(rides_path, method: :get) do %>
-   <%= text_field_tag :search, params[:search] %>
-   <%= date_select(:date, start_year: Time.now.year, include_blank: true)%>
+<section class="portfolio" id="portfolio">
+  <div class = container>
+    <div class = "row">
+      <div class="col-lg-8 mx-auto center">
+        <h2 class="text-center text-uppercase text-secondary mb-0"> Browse Rides </h2><br><br>
+        <%= form_tag(rides_path, method: :get) do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= date_select(:date, start_year: Time.now.year, include_blank: true)%>
 
-   <%= submit_tag 'Search' %>
-<% end %>
-<br>
+          <%= submit_tag 'Search' %>
+        <% end %>
+        <br>
 
-<% @rides.each do |ride| %>
-  <%= render partial: '/users/rides', :locals => {:ride => ride} %>
-<% end %>
-</div>
+        <% @rides.each do |ride| %>
+          <%= render partial: '/users/rides', :locals => {:ride => ride} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
