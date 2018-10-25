@@ -35,6 +35,31 @@ class User < ApplicationRecord
       "#{self.first_name} #{self.last_name}"
     end
 
+    def upcoming_drives
+        self.drives.select do |drive|
+            drive.time > DateTime.now 
+        end
+    end
+
+    def upcoming_rides 
+        self.drives.select do |ride|
+            ride.time > DateTime.now 
+        end
+    end
+
+    def past_drives
+        self.drives.select do |drive|
+            drive.time < DateTime.now 
+        end
+    end
+
+    def past_rides
+        self.drives.select do |ride|
+            ride.time < DateTime.now 
+        end
+    end 
+
+
     # def driver_reviews
     #   self.drives.map do |drive|
     #     drive.reviews
