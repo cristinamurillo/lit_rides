@@ -1,7 +1,6 @@
-<% @user.rides.each do |ride|%>
-<%# if ride.time >= DateTime.now %>
-  <% if ride.time < DateTime.now %>
-    <%= render partial: 'rides', :locals => {:ride => ride} %>
-  <% end %>
-<%# end %>
+<h3>Past Rides</h3>
+<% @user.past_rides.each do |ride|%>
+
+  <%= render partial: 'rides', :locals => {:ride => ride} %>
+
 <% end %>

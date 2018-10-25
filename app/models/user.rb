@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+    has_many :reviews 
+    
     has_many :drives, foreign_key: 'driver_id', class_name: 'Ride'
 
     has_many :passenger_rides, foreign_key: :passenger_id, class_name: 'PassengerRide'
@@ -18,16 +20,45 @@ class User < ApplicationRecord
     # has_many :driver_reviews, through: :drives, source: :reviews
 
 
+    #validations
     validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :first_name, presence:true, length: {minimum: 2}
     validates :last_name, presence:true, length: {minimum: 2}
     validates :age, presence: true, numericality: {greater_than_or_equal_to: 18}
+
+
+    #class and instance methods
 
     has_secure_password
 
     def full_name
       "#{self.first_name} #{self.last_name}"
     end
+
+    def upcoming_drives
+        self.drives.select do |drive|
+            drive.time >= DateTime.now 
+        end
+    end
+
+    def upcoming_rides 
+        self.drives.select do |ride|
+            ride.time >= DateTime.now 
+        end
+    end
+
+    def past_drives
+        self.drives.select do |drive|
+            drive.time < DateTime.now 
+        end
+    end
+
+    def past_rides
+        self.drives.select do |ride|
+            ride.time < DateTime.now 
+        end
+    end 
+
 
     # def driver_reviews
     #   self.drives.map do |drive|

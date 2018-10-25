@@ -3,25 +3,44 @@
 <h3><%= link_to "View Profile", @user %> </h3>
 <h3><%= link_to "Edit Profile", edit_user_path(@user) %> </h3>
 <hr>
+
+<%#Driver Menu and Actions%>
 <h3>Driver</h3>
 
-<h4>Upcoming Drives</h4>
-<% @user.drives.each do |ride|%>
-<%# if ride.time >= DateTime.now %>
-    <%= render partial: 'rides', :locals => {:ride => ride} %>
-<%# end %>
+<% if @user.upcoming_drives.empty?%>
+   <h4><%= "No Upcoming Drives" %></h4>
+<% else%>
+    <h4>Upcoming Drives</h4>
+    <% @user.upcoming_drives.each do |ride|%>
+        <%= render partial: 'rides', :locals => {:ride => ride} %>
+    <% end %>
 <% end %>
 
-<h4><%= link_to "Past Drives", past_drives_path(@user) %></h4>
+<% if @user.past_drives.empty? %>
+    <h4><%= "No Past Drives" %></h4>
+<% else%>
+    <h4><%= link_to "Past Drives", past_drives_path(@user) %></h4>
+<% end%>
+
 <h4><%= link_to "Post a Drive", new_ride_path %></h4>
+
 <hr>
 
+<%#Passenger Menu and Actions%>
 <h3>Passenger</h3>
 
-<h4>Upcoming Rides</h4>
-<% @user.rides.each do |ride|%>
-    <%= render partial: 'rides', :locals => {:ride => ride}  %>
-<% end %>
+<% if @user.upcoming_rides.empty?%>
+    <h4><%= "No Upcoming Rides" %></h4>
+<% else%>
+    <h4>Upcoming Rides</h4>
+    <% @user.upcoming_rides.each do |ride|%>
+        <%= render partial: 'rides', :locals => {:ride => ride}  %>
+    <% end %>
+<% end%>
 
-<h4><%= link_to "Past Rides", past_rides_path(@user) %></h4>
+<% if @user.past_rides.empty?%>
+    <h4><%= "No Past Rides" %></h4>
+<% else%>
+    <h4><%= link_to "Past Rides", past_rides_path(@user) %></h4>
+<% end%>
 <%= link_to "Browse Rides", rides_path %>

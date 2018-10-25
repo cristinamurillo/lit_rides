@@ -2,7 +2,8 @@
 
 <%= form_tag(rides_path, method: :get) do %>
    <%= text_field_tag :search, params[:search] %>
-   <%= date_select :date, options: {:include_blank => true, :default => nil} %>
+   <%= date_select(:date, options = {:start_year => Time.now.year, :include_blank => true, :default => nil})%>
+
    <%= submit_tag 'Search' %>
 <% end %>
 <br>

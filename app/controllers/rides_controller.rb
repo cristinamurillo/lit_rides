@@ -21,6 +21,8 @@ class RidesController < ApplicationController
       @rides = Ride.all
     end
 
+    @rides = upcoming_rides(@rides)
+
 
     params.delete :search
     params.delete :date
