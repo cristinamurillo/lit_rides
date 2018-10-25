@@ -42,7 +42,7 @@ class User < ApplicationRecord
     end
 
     def upcoming_rides 
-        self.drives.select do |ride|
+        self.rides.select do |ride|
             ride.time >= DateTime.now 
         end
     end
