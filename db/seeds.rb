@@ -39,14 +39,16 @@ end
   )
 end
 
-50.times do 
-  Review.create(
-    title: Faker::Hipster.sentence,
-    rating: Faker::Number.between(1, 5),
-    content: Faker::Hipster.paragraph,
-    ride_id: Faker::Number.between(1, 40)
-  )
-end
+# 50.times do 
+#   Review.create(
+#     title: Faker::Hipster.sentence,
+#     rating: Faker::Number.between(1, 5),
+#     content: Faker::Hipster.paragraph,
+#     ride_id: Faker::Number.between(1, 40)
+#     user_id: 
+#   )
+ 
+# end
 
 
 puts "hi"
