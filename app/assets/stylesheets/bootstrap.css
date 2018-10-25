@@ -50,7 +50,10 @@
   font-family: 'Montserrat';
 }
 
-
+.center {
+  align-items: center;
+  justify-content: center;
+}
 
 /* end my random stuff */
 
@@ -96,6 +99,8 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+  /* font-weight: 700;
+  font-family: Montserrat; */
 }
 
 p {
@@ -2561,6 +2566,7 @@ fieldset:disabled a.btn {
   color: #212529;
   background-color: #f8f9fa;
   border-color: #f8f9fa;
+ 
 }
 
 .btn-light:hover {
@@ -2884,6 +2890,7 @@ fieldset:disabled a.btn {
   background-color: #2C3E50;
   background-image: none;
   border-color: #f8f9fa;
+  border-radius: 20px;
 }
 
 
