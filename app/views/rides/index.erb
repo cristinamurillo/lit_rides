@@ -1,5 +1,5 @@
 <h1> Browse Rides </h1>
-
+<div class="container">
 <%= form_tag(rides_path, method: :get) do %>
    <%= text_field_tag :search, params[:search] %>
    <%= date_select(:date, start_year: Time.now.year, include_blank: true)%>
@@ -11,3 +11,4 @@
 <% @rides.each do |ride| %>
   <%= render partial: '/users/rides', :locals => {:ride => ride} %>
 <% end %>
+</div>
