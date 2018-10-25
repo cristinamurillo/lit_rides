@@ -2,32 +2,26 @@ class UsersController < ApplicationController
   before_action :require_login
   # before_action -> {authorized?(params[:id])}, except: [:show, :new, :create]
   skip_before_action :require_login, only: [:show, :new, :create, :welcome]
+  before_action :set_user, only: [:show, :edit, :update, :account, :main_page, :past_drives, :past_rides, :destroy]
+  before_action :authorization, only: [:account, :main_page, :past_drives, :past_rides, :edit, :update, :destroy]
 
   def welcome
+
   end
 
   def account
-    set_user
-    authorization
   end
 
   def main_page
-    set_user
-    authorization
   end
 
   def past_drives
-    set_user
-    authorization
   end
 
   def past_rides
-    set_user
-    authorization
   end
 
   def show
-    set_user
   end
 
   def new
@@ -38,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
+      log_in_user(@user.id)
       redirect_to "/users/#{@user.id}/main_page"
     else
       flash[:errors] = @user.errors.full_messages
@@ -46,25 +41,26 @@ class UsersController < ApplicationController
   end
 
   def edit
-    set_user
-    authorization
   end
 
   def update
-    set_user
-    authorization
-    if @user.update(user_params)
-      redirect_to "/users/#{@user.id}/main_page"
+    if @user.authenticate(params[:user][:current_password])
+      if @user.update(user_params)
+        redirect_to "/users/#{@user.id}/main_page"
+      else
+        render :edit
+      end
     else
-      set_user
-      render :edit
+      flash['notice'] = "sorry"
+      render :account
     end
   end
-  #
-  # def destroy
-  #   set_user
-  #   @user.destroy
-  # end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to '/'
+  end
 
   private
 

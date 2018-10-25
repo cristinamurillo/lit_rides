@@ -4,8 +4,8 @@
 <hr>
 <br>
 <%= form_tag add_passenger_path, method: :post do %>
-<%= label_tag "Would you like to leave a message for the driver?" %><br>
-<%= text_area_tag :message %>
-<%= hidden_field_tag "id", @ride.id %><br><br>
-<%= submit_tag "Apply to Join" %>
+  <%= label_tag "Would you like to leave a message for the driver?" %><br>
+  <%= text_area_tag :message %>
+  <%= hidden_field_tag "id", @ride.id %><br><br>
+  <%= submit_tag "Apply to Join" %>
 <% end%>

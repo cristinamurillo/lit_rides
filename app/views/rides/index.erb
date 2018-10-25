@@ -2,13 +2,11 @@
 
 <%= form_tag(rides_path, method: :get) do %>
    <%= text_field_tag :search, params[:search] %>
-   <%= date_select(:date, options = {:start_year => Time.now.year, :include_blank => true, :default => nil})%>
+   <%= date_select(:date, start_year: Time.now.year, include_blank: true)%>
 
    <%= submit_tag 'Search' %>
 <% end %>
 <br>
-
-
 
 <% @rides.each do |ride| %>
   <%= render partial: '/users/rides', :locals => {:ride => ride} %>
