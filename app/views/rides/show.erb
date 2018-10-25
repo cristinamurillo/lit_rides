@@ -1,16 +1,12 @@
-<%= "#{@ride.departure} - #{@ride.destination}"%> <br>
-<%= "Date: #{@ride.time.to_date}" %> <br>
-<%= "Time of Departure: #{@ride.time.strftime('%H:%M')}" %><br>
-<p>Driver Profile: </p> <%= link_to @ride.driver.full_name, user_path(@ride.driver)%><br>
-<br>
-<br>
-<%#= "Duration of Trip: #{@ride.duration}" %><br>
-<%= "Number of Available Seats: #{@ride.available_seats}" %><br>
-<%= "Cost Per Seat: $#{@ride.cost}" %><br><br>
 
-<% if @ride.time > DateTime.now%>
- <%= button_to "Apply to join!" %>
- <% else%>
- <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers" %>
+<%= render partial: 'display', :locals => {:ride => @ride} %>
+<br><br>
+<% if @ride.time > DateTime.now && @ride.has_seats?%>
+     <%= form_tag apply_path, method: :get do %>
+     <%= hidden_field_tag "id", @ride.id%>
+     <%= submit_tag 'Apply to join!' %>
+     <% end%>
+ <% elsif @user.has_ride?(@ride)%>
+    <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers" %>
  <% end%>
 
