@@ -1,6 +1,11 @@
+<%= flash["notice"] %>
+
 <%= form_for @user do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
+  <br><br>
+  <%= f.label :current_password %>
+  <%= f.password_field :current_password %>
   <br><br>
   <%= f.label :password %>
   <%= f.password_field :password %>
@@ -10,5 +15,6 @@
   <br><br>
 
   <%= f.submit "Update Account", method: :get %>
-
 <% end %>
+
+<%= button_to "Delete Account", user_path(@user), method: :delete %>

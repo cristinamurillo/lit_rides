@@ -8,8 +8,9 @@
           <%= "No one has applied to join your ride!" %>
         <% else %>
           <h3><%= "Passengers who want to get Lit:" %></h3>
-          <% @ride.passengers.each do |passenger| %>
-            <%= link_to passenger.full_name, passenger %>
+          <% @ride.passenger_rides.each do |pass_ride| %>
+            <%= link_to pass_ride.passenger.full_name, pass_ride.passenger %>
+            <!-- <p><%#= pass_ride.message %></p> -->
           <% end %>
         <% end %>
     <% else %>
