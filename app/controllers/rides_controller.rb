@@ -35,8 +35,8 @@ class RidesController < ApplicationController
   end
 
   def travelers
-    set_ride 
-    @review = Review.new 
+    set_ride
+    # @review = Review.new 
   end
 
   def create

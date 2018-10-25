@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   get "/users/:id/main_page", to: 'users#main_page'
 
   get "/rides/:id/travelers", to: 'rides#travelers'
-  
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+
+
   resources :passenger_rides
   resources :reviews
   resources :rides

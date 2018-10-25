@@ -1,14 +1,21 @@
 class UsersController < ApplicationController
+  before_action :require_login
+  # before_action -> {authorized?(params[:id])}, except: [:show, :new, :create]
+  skip_before_action :require_login, only: [:show, :new, :create]
+
   def main_page
     set_user
+    authorization
   end
 
   def past_drives
     set_user
+    authorization
   end
 
   def past_rides
     set_user
+    authorization
   end
 
   def show
@@ -51,11 +58,19 @@ class UsersController < ApplicationController
 
   private
 
+  def authorization
+    return head(:forbidden) unless authorized?(@user.id)
+  end
+
+  def require_login
+    return head(:forbidden) unless session.include?(:user_id)
+  end
+
   def set_user
     @user = User.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :age, :car_type, :about_me, :smoking, :pets, :engagement)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :age, :car_type, :about_me, :smoking, :pets, :engagement)
   end
 end

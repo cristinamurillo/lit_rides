@@ -13,8 +13,11 @@ class SessionsController < ApplicationController
     else
       flash[:errors] = ["SrRY. Either you don't have an account or you're a troll."]
       # byebug
-      redirect_to new_session_path
+      redirect_to login_path
     end
   end
 
+  def destroy
+    session.delete :email
+  end
 end

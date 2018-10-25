@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :setup
-  
+
   private
 
   def setup
