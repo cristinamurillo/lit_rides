@@ -2,7 +2,7 @@
 
 <h3><%= link_to "View Profile", @user %> </h3>
 <h3><%= link_to "Edit Profile", edit_user_path(@user) %> </h3>
-<h3><%= link_to "Edit Account", account_path %></h3> 
+<h3><%= link_to "Edit Account", account_path %></h3>
 <hr>
 
 <%#Driver Menu and Actions%>
@@ -46,4 +46,16 @@
 <% end%>
 <%= link_to "Browse Rides", rides_path %><br>
 
+<hr>
+
+<h2> Reviews </h2>
+  <% if @user.reviews.empty? %>
+    <h4><%= "No Reviews Yet" %></h4>
+  <% else %>
+    <% @user.reviews.each do |review|%>
+        <%= link_to review.title, review %> Rating: <%= review.rating %>
+    <% end%>
+  <% end %>
+
+<hr>
 <%= link_to "Log Out", logout_path, method: :delete %>

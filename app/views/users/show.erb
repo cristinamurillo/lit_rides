@@ -7,13 +7,13 @@
 <h2>Lit Ride: <%= @user.car_type %></h2>
 
 <h2>Preferences:</h2>
-<p> Smoker? 
+<p> Smoker?
 <% if @user.smoking %>
     <%= "🚬 "%>
     <% else %>
     <%= "🙅‍♀️"%>
 <% end %></p>
-<p> Pets? 
+<p> Pets?
 <% if @user.pets %>
   <%= "🐶 "%>
   <% else %>
@@ -22,11 +22,11 @@
 <p> How Lit?:
 <% case @user.engagement %>
   <% when 1 %>
-  <%= "🚬 "%>
+  <%= "🔥"%>
   <% when 2 %>
-  <%= "🙅‍♀️"%>
+  <%= "🔥🔥"%>
   <% when 3 %>
-  <%= "🙅‍♀️"%>
+  <%= "🔥🔥🔥"%>
 <% end %></p>
 
 <% unless @user.upcoming_drives.empty? %>
@@ -40,5 +40,7 @@
 
 <h2> Reviews </h2>
 <% @user.reviews.each do |review|%>
-  <%= render partial: '/reviews/display', :locals => {:review => review} %>
+<ul>
+  <%= link_to review.title, review %> <%= review.rating %>
+</ul>
 <% end%>
