@@ -14,7 +14,7 @@ Review.destroy_all
     password_digest: BCrypt::Password.create('etsy'),
     age: Faker::Number.between(18, 55),
     car_type: Faker::Vehicle.make_and_model,
-    about_me: Faker::Lorem.paragraph,
+    about_me: Faker::Hipster.paragraph,
     smoking: Faker::Boolean,
     pets: Faker::Boolean,
     engagement: Faker::Number.between(1, 3)

@@ -54,23 +54,26 @@
 
     <h2> Reviews </h2>
     <% unless @user.reviews.empty?%>
+    <ul>
         <% @user.reviews.each do |review|%>
-        <ul>
-        <%= link_to review.title, review %> Rating:
-        <% case review.rating%>
-        <% when 1%>
-            <h2> <%= "💩 "%></h2>
-        <% when 2%>
-            <h2><%= "😷😷" %></h2>
-        <% when 3%>
-            <h2><%= "😐😐😐" %></h2>
-        <% when 4%>
-            <h2><%= "💁💁💁💁" %></h2>
-        <% when 5%>
-            <h2><%= "💃💃💃💃💃" %></h2>
-        <% end%>
-        </ul>
-        <% end%>
+        <li>
+        <p class ="lead"><%= link_to review.title, review %> <br>Rating:
+            <% case review.rating%>
+            <% when 1%>
+                <h2> <%= "💩 "%></h2>
+            <% when 2%>
+                <h2><%= "😷😷" %></h2>
+            <% when 3%>
+                <h2><%= "😐😐😐" %></h2>
+            <% when 4%>
+                <h2><%= "💁💁💁💁" %></h2>
+            <% when 5%>
+                <%= "💃💃💃💃💃" %>
+            <% end%>
+        
+        <% end%></p>
+        </li>
+   </ul>
     <% else%>
         <h6><%= "No Reviews Yet" %></h6>
     <% end%>

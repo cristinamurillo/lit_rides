@@ -1,20 +1,25 @@
+<div class="container">
+<h1>Edit Account</h1><hr>
 <%= flash["notice"] %>
 
 <%= form_for @user do |f| %>
-  <%= f.label :email %>
+  <p class="lead"><%= f.label :email %><br>
   <%= f.text_field :email %>
   <br><br>
-  <%= f.label :current_password %>
+  <%= f.label :current_password %><br>
   <%= f.password_field :current_password %>
   <br><br>
-  <%= f.label :password %>
+  <%= f.label :password %><br>
   <%= f.password_field :password %>
   <br><br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.label :password_confirmation %><br>
+  <%= f.password_field :password_confirmation %></p>
   <br><br>
 
-  <%= f.submit "Update Account", method: :get %>
+  <%= f.submit "Update Account", method: :get, class: "btn btn-primary" %>
 <% end %>
 
-<%= button_to "Delete Account", user_path(@user), method: :delete, confirm: "Are you sure?"%>
+<%= button_to "Delete Account", user_path(@user), method: :delete %>
+<br><br>
+
+</div>

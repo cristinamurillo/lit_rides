@@ -1,18 +1,27 @@
-#link to ride show page
-<h2>Driver: <%= link_to "#{@ride.driver.full_name}", @ride.driver %>
+<div class="container">
+<p class="lead"><%= link_to "Back to Ride", @ride %></p>
+
+<h2>Driver:</h2> <p class="lead"><%= link_to "#{@ride.driver.full_name}", @ride.driver %>
 <%= form_tag new_review_path, method: :get do %>
      <%= hidden_field_tag "user", @ride.driver.id%>
      <%= hidden_field_tag "ride", @ride.id %>
-     <%= submit_tag 'Write a Review' %>
+     <%= submit_tag 'Write a Review', class: "btn btn-primary"  %></p>
     <% end%>
+    <br>
 
 <h2>Passengers: </h2>
+<ul>
 <% @ride.passengers.each do |passenger|%>
-    <%= link_to passenger.full_name, passenger %>
-
-    <%= form_tag new_review_path, method: :get do %>
-     <%= hidden_field_tag "user", passenger.id%>
-     <%= hidden_field_tag "ride", @ride.id %>
-     <%= submit_tag 'Write a Review' %>
+   <p class="lead">
+   <li>
+        <%= link_to passenger.full_name, passenger %>
+        <%= form_tag new_review_path, method: :get do %>
+        <%= hidden_field_tag "user", passenger.id%>
+        <%= hidden_field_tag "ride", @ride.id %>
+        <%= submit_tag 'Write a Review', class: "btn btn-primary"  %>
+     </li>
+     </p>
 <% end %>
 <% end%>
+</ul>
+</div>
