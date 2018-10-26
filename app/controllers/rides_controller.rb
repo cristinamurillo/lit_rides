@@ -36,7 +36,7 @@ class RidesController < ApplicationController
   def add_passenger
     @user = User.find(logged_in_user_id)
     @ride = set_ride #set_ride as before_action
-    @passenger_ride = PassengerRide.create(user: @user, ride: @ride, message: params[:message])
+    @passenger_ride = PassengerRide.create(passenger_id: @user.id, ride_id: @ride.id, message: params[:message])
     @ride.available_seats -= 1
     @ride.save
     # @passenger_ride.message = params[:message]

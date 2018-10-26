@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def setup
-    @logged_in = !!@user
+    @logged_in = !@user
 
     @message = flash[:message]
     @errors = flash[:errors]
