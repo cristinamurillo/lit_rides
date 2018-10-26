@@ -6,10 +6,10 @@
 <%= f.text_field :destination %><br><br>
 
 <%= f.label :date %><br>
-<%= f.date_select :time %><br><br>
+<%= f.datetime_select :time %><br><br>
 
-<%= f.label :time %><br>
-<%= f.time_select :time %><br><br>
+<%# f.label :time %><br>
+<%#f.time_select :time %><br><br>
 
 <%#= f.label :duration %>
 <%#= f.time_select :duration %>
@@ -21,7 +21,7 @@
 <%= f.number_field :available_seats %><br>
 
 <%= f.hidden_field :driver_id %>
-<%= hidden_field_tag 23 %>
+<%= hidden_field_tag :user_id %>
 </p>
 
 <%= f.submit class: "btn btn-primary btn-xl"%>
