@@ -44,6 +44,8 @@ class RidesController < ApplicationController
     redirect_to "/users/#{logged_in_user_id}/main_page"
   end
 
+  
+
   def show
     set_ride
     @user = User.find(logged_in_user_id)
@@ -99,7 +101,7 @@ class RidesController < ApplicationController
   end
 
   def ride_params
-    
+
     params.require(:ride).permit(:departure, :destination, :time, :duration, :cost, :driver_id, :available_seats)
 
   end
