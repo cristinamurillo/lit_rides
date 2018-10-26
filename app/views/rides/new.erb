@@ -3,7 +3,7 @@
 <br>
 
   <%= form_for @ride do |f| %>
-    <%= render partial: 'form', :locals => {:f => f} %>
+    <%= render partial: 'form', :locals => {:f => f, :user_id => @user_id} %>
   <% end %>
 <br><br>
 </div>

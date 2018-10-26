@@ -18,6 +18,7 @@ class RidesController < ApplicationController
 
     if @rides == nil
       # flash[:message] = "nope"
+      
       @rides = Ride.all
       # upcoming_rides(@rides)
     end
@@ -50,6 +51,7 @@ class RidesController < ApplicationController
 
   def new
     @ride = Ride.new
+    @user_id = session[:user_id]
   end
 
   def travelers
@@ -59,6 +61,7 @@ class RidesController < ApplicationController
 
   def create
     @ride = Ride.new(ride_params)
+    byebug
     @ride.driver_id = logged_in_user_id
     if @ride.valid?
       @ride.save
@@ -70,6 +73,7 @@ class RidesController < ApplicationController
 
   def edit
     set_ride
+    @user_id = session[:user_id]
   end
 
   def update
@@ -95,10 +99,13 @@ class RidesController < ApplicationController
   end
 
   def ride_params
-    ride = params[:ride]
-    time = DateTime.new(ride["time(1i)"].to_i, ride["time(2i)"].to_i, ride["time(3i)"].to_i, ride["time(4i)"].to_i, ride["time(5i)"].to_i)
-    params[:ride][:time] = time
-    params.require(:ride).permit(:departure, :destination, :time, :duration, :cost, :available_seats)
+    
+    #ride = params[:ride]
+   # time = DateTime.new(ride["time(1i)"].to_i, ride["time(2i)"].to_i, ride["time(3i)"].to_i, ride["time(4i)"].to_i, ride["time(5i)"].to_i)
+    
+    #params[:ride][:time] = time
+    # byebug
+    params.require(:ride).permit(:departure, :destination, :time, :duration, :cost, :driver_id, :available_seats)
   end
 
 end
