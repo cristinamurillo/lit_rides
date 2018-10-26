@@ -2,9 +2,9 @@
 
 <div class = "container">
        
-        <h5 class= "text-center"><%= link_to "View Profile ", @user %> 
-        <%= link_to " Edit Profile ", edit_user_path(@user) %> 
-        <%= link_to " Edit Account", account_path %></h5>
+        <h5 class= "text-center"><%= link_to "View Profile   ", @user %> 
+        <%= link_to "   Edit Profile   ", edit_user_path(@user) %> 
+        <%= link_to "   Edit Account", account_path %></h5>
 
     <hr>
 
@@ -60,5 +60,5 @@
             Review: <%= link_to review.title, review %> Rating: <%= review.rating %>
         <% end%>
     <% end %>
-
+<br><br>
 </div>
