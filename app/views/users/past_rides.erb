@@ -1,6 +1,9 @@
+<div class="container">
 <h3>Past Rides</h3>
 <% @user.past_rides.each do |ride|%>
 
   <%= render partial: 'rides', :locals => {:ride => ride} %>
 
 <% end %>
+
+</div>

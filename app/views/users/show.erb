@@ -5,9 +5,11 @@
         <div class= "col-md-6">
             <div class ="portfolio-item d-block mx-auto">
 
-                <h4><%= @user.age %> years old</h4><br>
-                <%= form_tag @user do %>
-                <%= image_tag @user.image_url %>
+                <h4><%= @user.age %> years old</h4>
+                <% if @user.image_url != nil%>
+                    <%= form_tag @user do %>
+                    <%= image_tag @user.image_url %><br><br><br>
+                    <% end%>
                 <% end %>
                 <h4>About Me:</h4>
                 <p class ="lead"><%= @user.about_me %></p>
@@ -63,13 +65,13 @@
         <p class ="lead"><%= link_to review.title, review %> <br>Rating:
             <% case review.rating%>
             <% when 1%>
-                <h2> <%= "💩 "%></h2>
+                <%= "💩 "%>
             <% when 2%>
-                <h2><%= "😷😷" %></h2>
+                <%= "😷😷" %>
             <% when 3%>
-                <h2><%= "😐😐😐" %></h2>
+                <%= "😐😐😐" %>
             <% when 4%>
-                <h2><%= "💁💁💁💁" %></h2>
+                <%= "💁💁💁💁" %>
             <% when 5%>
                 <%= "💃💃💃💃💃" %>
             <% end%>

@@ -13,12 +13,13 @@
           <% @ride.passenger_rides.each do |pass_ride| %>
            <p class="lead"> <%= link_to pass_ride.passenger.full_name, pass_ride.passenger %></p>
               <% if pass_ride.message != nil %>
-            <p class="lead"><%= pass_ride.message %></p>
+                <p class="lead"><%= pass_ride.message %></p>
               <% end %>
-          <% end %>
         <% end %>
-        <%= button_to "Delete Ride", ride_path(@ride), method: :delete, , class: "btn btn-primary" %><br>
-        <%= button_to "Edit Ride", edit_ride_path(@ride), method: :get, , class: "btn btn-primary" %>
+      <% end %>
+        <%= button_to "Edit Ride", edit_ride_path(@ride), method: :get, class: "btn btn-primary" %><br>
+        <%= button_to "Delete Ride", "/rides/#{@ride.id}/destroy", method: :delete , class: "btn btn-primary" %><br>
+       
     <% elsif @ride.passengers.include?(@user) %>
         <%= "You're already going on this ride! Get lit! 🤙 " %>
         <%= form_tag leave_ride_path, method: :delete do%>

@@ -65,7 +65,7 @@ class RidesController < ApplicationController
 
   def create
     @ride = Ride.new(ride_params)
-    byebug
+
     @ride.driver_id = logged_in_user_id
     if @ride.valid?
       @ride.save
