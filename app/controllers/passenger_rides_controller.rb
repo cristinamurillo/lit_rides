@@ -9,4 +9,5 @@ class PassengerRidesController < ApplicationController
     ride.destroy
     redirect_to main_page_path
   end
+
 end
