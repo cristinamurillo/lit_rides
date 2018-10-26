@@ -12,9 +12,13 @@
           <h3><%= "Passengers who want to get Lit:" %></h3>
           <% @ride.passenger_rides.each do |pass_ride| %>
             <%= link_to pass_ride.passenger.full_name, pass_ride.passenger %>
-            <p><= pass_ride.message %></p>
+              <% if !pass_ride.message.empty? %>
+            <p><%= pass_ride.message %></p>
+              <% end %>
           <% end %>
         <% end %>
+        <%= button_to "Delete Ride", ride_path(@ride), method: :delete %>
+        <%= button_to "Edit Ride", edit_ride_path(@ride), method: :get %>
     <% else %>
       <%= form_tag apply_path, method: :get do %>
         <%= hidden_field_tag "id", @ride.id%>
