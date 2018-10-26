@@ -1,8 +1,11 @@
-<h1> Create User </h1>
+<div class="container">
+<h1> Create Account </h1><hr>
 
 <%= flash['notice'] %>
 
+
 <%= form_for @user do |f| %>
+<p class ="lead">
   <%= f.label :email %><br>
   <%= f.text_field :email %>
   <br><br>
@@ -10,7 +13,10 @@
   <%= f.password_field :password %>
   <br><br>
   <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation %></p>
   <br><br>
   <%= render partial: 'form', :locals => {:f => f} %>
 <% end %>
+<br><br>
+
+</div>

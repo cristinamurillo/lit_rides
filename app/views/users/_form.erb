@@ -1,11 +1,11 @@
-
+<p class="lead">
 <%= f.label :first_name %><br>
 <%= f.text_field :first_name %>
 <br><br>
 <%= f.label :last_name %><br>
 <%= f.text_field :last_name%>
 <br><br>
-<%= f.label :age %>
+<%= f.label :age %><br>
 <%= f.number_field :age %>
 <br><br>
 <%= f.label :car_type %><br>
@@ -20,7 +20,7 @@
 <%= f.label :pets %>
 <%= f.check_box :pets %>
 <br><br>
-<%= f.label :engagement %>
-<%= f.number_field :engagement %>
+<%= f.label :engagement %><br>
+<%= f.number_field :engagement %></p>
 <br><br>
-<%= f.submit %>
+<%= f.submit class: "btn btn-primary btn-xl" %>
