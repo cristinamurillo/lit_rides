@@ -2,13 +2,13 @@
   <div class = "container">
     <div class = "row">
       <div class="col-lg-8 mx-auto center">
-        <h2 class="text-center text-uppercase text-secondary mb-0"> Where You Wanna Get Lit Tho? </h2><br><br>
+        <h1 class="text-center text-uppercase text-secondary mb-0"> Where You Tryna Go? </h1><hr><br><br>
         <%= form_tag(rides_path, method: :get) do %>
           <h3><%= label_tag "Get Scooped:" %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search by location" %> 
+          <%= text_field_tag :search, params[:search], placeholder: "Search by location", class: "input-search" %> 
           <!-- <%= date_select(:date, start_year: Time.now.year, include_blank: true)%> -->
 
-          <%= submit_tag 'Search' %></h3>
+          <%= submit_tag 'Search', class: "btn btn-primary"%></h3>
         <% end %>
         <br>
 

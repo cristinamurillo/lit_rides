@@ -226,6 +226,11 @@ button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
+.input-search{
+  font-size: 17px;
+  line-height: 40px;
+  border-radius: 5px;
+}
 
 input,
 button,
