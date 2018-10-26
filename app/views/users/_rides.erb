@@ -1,9 +1,11 @@
+
 <ul>
   <%= link_to ride, :class=> "btn btn-xl btn-outline-light" do %>
-  <div>
+  <p class="lead">
     <%= "Departure: #{ride.departure}"%> <br>
     <%= "Destination: #{ride.destination}" %> <br>
     <%= "Date: #{ride.time.strftime('%B %e %Y')}" %> <br>
-  </div>
+  </p>
   <% end %>
 </ul>
+

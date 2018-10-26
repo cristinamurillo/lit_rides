@@ -1,21 +1,21 @@
 
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="../../assets/images/profile.png" alt="">
+    <%#   <img class="img-fluid mb-5 d-block mx-auto" src="app/assets/images/lit_ride.png">  %>
+      <%= image_tag("lit_ride.png", class: "img-fluid mb-5 d-block mx-auto")  %>
         <h1 class="text-uppercase mb-0">GET A LIT RIDE</h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0">Sign Up</h2>
+        <h2 ><%= link_to "Sign Up", new_user_path, class: "text-uppercase mb-0"%></h2>
       </div>
     </header>
-<h1> Get Lit with Lit Rides </h1>
-<p> What would you like to do? </p>
 
-<% if session[:user_id] == nil %>
-  <%= link_to "Log In", login_path %><br>
-  <%= link_to "Sign Up", new_user_path %>
-<% else %>
-  <%= "You are already logged in!" %><br>
-  <%= link_to "Continue to Dashboard", "users/#{session[:user_id]}/main_page" %><br>
-  <%= link_to "Browse Rides", rides_path %><br>
-  <%= link_to "Log Out", logout_path, method: :delete %>
-<% end %>
+
+<%# if session[:user_id] == nil %>
+  <%# link_to "Log In", login_path %>
+  <%#link_to "Sign Up", new_user_path %>
+<%#else %>
+  <%# "You are already logged in!" %>
+  <%# link_to "Continue to Dashboard", "users/#{session[:user_id]}/main_page" %>
+  <%# link_to "Browse Rides", rides_path %>
+  <%#link_to "Log Out", logout_path, method: :delete %>
+<%# end %>

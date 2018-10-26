@@ -1,61 +1,64 @@
-<h1> Welcome <%= @user.first_name %>!</h1>
+<h2 class="text-center text-uppercase text-secondary mb-0"> Welcome <%= @user.first_name %>!</h2><br>
 
-<h3><%= link_to "View Profile", @user %> </h3>
-<h3><%= link_to "Edit Profile", edit_user_path(@user) %> </h3>
-<h3><%= link_to "Edit Account", account_path %></h3>
-<hr>
+<div class = "container">
+       
+        <h5 class= "text-center"><%= link_to "View Profile ", @user %> 
+        <%= link_to " Edit Profile ", edit_user_path(@user) %> 
+        <%= link_to " Edit Account", account_path %></h5>
 
-<%#Driver Menu and Actions%>
-<h3>Driver</h3>
+    <hr>
 
-<% if @user.upcoming_drives.empty?%>
-   <h4><%= "No Upcoming Drives" %></h4>
-<% else%>
-    <h4>Upcoming Drives</h4>
-    <% @user.upcoming_drives.each do |ride|%>
-        <%= render partial: 'rides', :locals => {:ride => ride} %>
+    <%#Driver Menu and Actions%>
+    <h3 class ="text-center text-uppercase text-secondary mb-0">Driver</h3><br>
+
+    <% if @user.upcoming_drives.empty?%>
+    <h4><%= "No Upcoming Drives" %></h4>
+    <% else%>
+        <h4>Upcoming Drives:</h4>
+        <% @user.upcoming_drives.each do |ride|%>
+            <%= render partial: 'rides', :locals => {:ride => ride} %>
+        <% end %>
+        <br>
     <% end %>
-<% end %>
 
-<% if @user.past_drives.empty? %>
-    <h4><%= "No Past Drives" %></h4>
-<% else%>
-    <h4><%= link_to "Past Drives", past_drives_path(@user) %></h4>
-<% end%>
-
-<h4><%= link_to "Post a Drive", new_ride_path %></h4>
-
-<hr>
-
-<%#Passenger Menu and Actions%>
-<h3>Passenger</h3>
-
-<% if @user.upcoming_rides.empty?%>
-    <h4><%= "No Upcoming Rides" %></h4>
-<% else%>
-    <h4>Upcoming Rides</h4>
-    <% @user.upcoming_rides.each do |ride|%>
-        <%= render partial: 'rides', :locals => {:ride => ride}  %>
-    <% end %>
-<% end%>
-
-<% if @user.past_rides.empty?%>
-    <h4><%= "No Past Rides" %></h4>
-<% else%>
-    <h4><%= link_to "Past Rides", past_rides_path(@user) %></h4>
-<% end%>
-<%= link_to "Browse Rides", rides_path %><br>
-
-<hr>
-
-<h2> Reviews </h2>
-  <% if @user.reviews.empty? %>
-    <h4><%= "No Reviews Yet" %></h4>
-  <% else %>
-    <% @user.reviews.each do |review|%>
-        Review: <%= link_to review.title, review %> Rating: <%= review.rating %>
+    <% if @user.past_drives.empty? %>
+        <h4><%= "No Past Drives" %></h4>
+    <% else%>
+        <h4><%= link_to "Past Drives", past_drives_path(@user) %></h4>
     <% end%>
-  <% end %>
+    <br>
+    <h5><%= link_to "Post a Drive", new_ride_path, class: "btn btn-primary btn-xl" %></h5>
 
-<hr>
-<%= link_to "Log Out", logout_path, method: :delete %>
+    <hr>
+
+    <%#Passenger Menu and Actions%>
+    <h3 class ="text-center text-uppercase text-secondary mb-0">Passenger</h3><br>
+
+    <% if @user.upcoming_rides.empty?%>
+        <h4><%= "No Upcoming Rides" %></h4>
+    <% else%>
+        <h4>Upcoming Rides:</h4>
+        <% @user.upcoming_rides.each do |ride|%>
+            <%= render partial: 'rides', :locals => {:ride => ride}  %>
+        <% end %>
+        <br>
+    <% end%>
+
+    <% if @user.past_rides.empty?%>
+        <h4><%= "No Past Rides" %></h4>
+    <% else%>
+        <h4><%= link_to "Past Rides", past_rides_path(@user) %></h4>
+    <% end%>
+
+    <hr>
+
+    <h3 class ="text-center text-uppercase text-secondary mb-0"> Reviews </h3>
+    <% if @user.reviews.empty? %>
+        <h4><%= "No Reviews Yet" %></h4>
+    <% else %>
+        <% @user.reviews.each do |review|%>
+            Review: <%= link_to review.title, review %> Rating: <%= review.rating %>
+        <% end%>
+    <% end %>
+
+</div>
