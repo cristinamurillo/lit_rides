@@ -17,7 +17,8 @@ Review.destroy_all
     about_me: Faker::Hipster.paragraph,
     smoking: Faker::Boolean,
     pets: Faker::Boolean,
-    engagement: Faker::Number.between(1, 3)
+    engagement: Faker::Number.between(1, 3),
+    image_url: Faker::Avatar.image
   )
 end
 
@@ -39,15 +40,15 @@ end
   )
 end
 
-# 50.times do 
+# 50.times do
 #   Review.create(
 #     title: Faker::Hipster.sentence,
 #     rating: Faker::Number.between(1, 5),
 #     content: Faker::Hipster.paragraph,
 #     ride_id: Faker::Number.between(1, 40)
-#     user_id: 
+#     user_id:
 #   )
- 
+
 # end
 
 

@@ -4,8 +4,11 @@
     <div class = "row">
         <div class= "col-md-6">
             <div class ="portfolio-item d-block mx-auto">
-                
+
                 <h4><%= @user.age %> years old</h4><br>
+                <%= form_tag @user do %>
+                <%= image_tag @user.image_url %>
+                <% end %>
                 <h4>About Me:</h4>
                 <p class ="lead"><%= @user.about_me %></p>
 
@@ -40,12 +43,12 @@
         <div class = "row">
             <div class ="portfolio-item d-block mx-auto">
                 <% unless @user.upcoming_drives.empty? %>
-               
+
                 <h4> Upcoming Drives </h4>
                 <% @user.upcoming_drives.each do |ride| %>
                     <%= render partial: '/users/rides', :locals => {:ride => ride} %>
                 <% end %>
-                
+
                 <% end%>
             </div>
         </div>
@@ -70,7 +73,7 @@
             <% when 5%>
                 <%= "💃💃💃💃💃" %>
             <% end%>
-        
+
         <% end%></p>
         </li>
    </ul>
@@ -78,6 +81,5 @@
         <h6><%= "No Reviews Yet" %></h6>
     <% end%>
     <br><br><br>
-    
-</div>
 
+</div>
