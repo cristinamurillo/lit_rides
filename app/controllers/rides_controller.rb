@@ -100,12 +100,8 @@ class RidesController < ApplicationController
 
   def ride_params
     
-    #ride = params[:ride]
-   # time = DateTime.new(ride["time(1i)"].to_i, ride["time(2i)"].to_i, ride["time(3i)"].to_i, ride["time(4i)"].to_i, ride["time(5i)"].to_i)
-    
-    #params[:ride][:time] = time
-    # byebug
     params.require(:ride).permit(:departure, :destination, :time, :duration, :cost, :driver_id, :available_seats)
+
   end
 
 end

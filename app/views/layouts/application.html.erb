@@ -53,10 +53,10 @@
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <% if session[:user_id] != nil %>
-            
+
                 <%= link_to 'Log Out', logout_path, method: :delete, class: "nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %>
               <% else%>
-            
+
                 <%= link_to 'Log In', login_path, class: "nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  %>
               <% end%>
             </li>
@@ -68,7 +68,7 @@
     <header>
     <%#more stuff from template%>
 
-    
+
     <%#template section ends%>
 
       <% if @message %>
