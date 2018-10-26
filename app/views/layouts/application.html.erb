@@ -44,18 +44,18 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              
+
               <%= link_to 'Dashboard', "/users/1/main_page", class: "nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"%>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/rides">Browse</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <% if @logged_in %>
-            
+              <% if session[:user_id] != nil %>
+ 
                 <%= link_to 'Log Out', logout_path, method: :delete, class: "nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" %>
               <% else%>
-            
+
                 <%= link_to 'Log In', login_path, class: "nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  %>
               <% end%>
             </li>
@@ -67,7 +67,7 @@
     <header>
     <%#more stuff from template%>
 
-    
+
     <%#template section ends%>
 
       <% if @message %>

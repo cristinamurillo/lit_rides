@@ -31,6 +31,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     # if params[:password] == params[:password_confirmation]
+      @user.first_name.titleize
+      @user.last_name.titleize
       if @user.valid?
         @user.save
         log_in_user(@user.id)
@@ -50,6 +52,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.authenticate(params[:user][:current_password])
+      byebug
       if @user.update(user_params)
         redirect_to "/users/#{@user.id}/main_page"
       else

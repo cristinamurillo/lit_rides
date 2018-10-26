@@ -1,12 +1,9 @@
 <%= form_tag login_path do |f| %>
   <%= label_tag :email %>
   <%= text_field_tag :email %>
-
+<br><br>
   <%= label_tag :password %>
   <%= password_field_tag :password %>
-
-  <%= label_tag :password_confirmation %>
-  <%= password_field_tag :password_confirmation %>
 
   <%= submit_tag "Log In" %>
 <% end %>
