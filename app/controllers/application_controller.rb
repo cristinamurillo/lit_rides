@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
   def authorized?(user_id)
     logged_in_user_id == user_id
   end
+
+  def logged_in?
+    !!session[:user_id]
+  end
 end

@@ -414,6 +414,7 @@ h6, .h6 {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+  text-align: left;
 }
 
 .display-1 {
@@ -498,7 +499,7 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 75%;
   height: auto;
 }
 
@@ -2887,10 +2888,10 @@ fieldset:disabled a.btn {
 
 .btn-outline-light {
   color: #f8f9fa;
-  background-color: #2C3E50;
+  background-color: #1AA38C;
   background-image: none;
   border-color: #f8f9fa;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 

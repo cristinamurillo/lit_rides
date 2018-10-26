@@ -1,3 +1,6 @@
+<div class="container">
 <%= render partial: 'display', :locals => {:review => @review} %>
+</div>
 
-<%= link_to @review.user.full_name, @review.user %> 
+<%= link_to @review.user.full_name, @review.user, :class=> "btn btn-xl btn-outline-light" %> 
+</div>

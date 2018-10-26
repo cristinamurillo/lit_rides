@@ -348,7 +348,7 @@ a:focus, a:hover, a:active {
 }
 
 .bg-primary {
-  background-color: #18BC9C !important;
+  background-color: #18BC9C ;
 }
 
 .bg-secondary {
@@ -364,7 +364,7 @@ a:focus, a:hover, a:active {
 }
 
 .btn-primary {
-  background-color: #18BC9C;
+  background-color: #1A84A3;
   border-color: #18BC9C;
 }
 

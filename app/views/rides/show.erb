@@ -7,7 +7,7 @@
 <% if @ride.time > DateTime.now && @ride.has_seats?%>
     <% if @user == @ride.driver %>
         <% if @ride.passengers.empty? %>
-          <%= "No one has applied to join your ride!" %>
+          <p class ="lead"> <%= "No one has applied to join your ride!" %></p>
         <% else %>
           <h3><%= "Passengers who want to get Lit:" %></h3>
           <% @ride.passenger_rides.each do |pass_ride| %>

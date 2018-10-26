@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Join this ride!</h1>
 <%= render partial: 'display', :locals => {:ride => @ride} %>
 
@@ -7,5 +8,7 @@
   <%= label_tag "Would you like to leave a message for the driver?" %><br>
   <%= text_area_tag :message %>
   <%= hidden_field_tag "id", @ride.id %><br><br>
-  <%= submit_tag "Apply to Join" %>
+  <%= submit_tag "Apply to Join", :class=> "btn btn-xl btn-outline-light" %>
 <% end%>
+
+</div>
