@@ -19,15 +19,21 @@
         <% end %>
         <%= button_to "Delete Ride", ride_path(@ride), method: :delete %>
         <%= button_to "Edit Ride", edit_ride_path(@ride), method: :get %>
+    <% elsif @ride.passengers.include?(@user) %>
+        <%= "You're already going on this ride! Get lit! 🤙 " %>
+        <%= form_tag leave_ride_path, method: :delete do%>
+        <%= hidden_field_tag "ride_id", @ride.id %>
+        <%= submit_tag "Leave Ride", :class=> "btn btn-xl btn-outline-light"   %>
+        <% end %>
+        <%= link_to "Get Litty w/ More Rides!", rides_path %>
+
     <% else %>
       <%= form_tag apply_path, method: :get do %>
         <%= hidden_field_tag "id", @ride.id%>
         <%= submit_tag "Get Lit with #{@ride.driver.full_name}", :class=> "btn btn-xl btn-outline-light" %>
+        <% end %>
       <% end %>
-    <% end %>
  <% elsif @user.has_ride?(@ride)%>
-    
     <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers", :class=> "btn btn-xl btn-outline-light"%>
-
  <% end%>
  </div>
