@@ -1,14 +1,14 @@
-<p>Title <br>
-<%= f.text_field :title %></p>
+<p class ="lead">Title <br>
+<%= f.text_field :title %> <br><br>
 
-<p>Rating
-<%= f.select "rating", options_for_select((1..5).step(1))%></p>
+Rating
+<%= f.select "rating", options_for_select((1..5).step(1))%><br><br>
 
 
-<p>Tell us how you really feel <br>
-<%= f.text_area :content %></p>
+Tell us how you really feel <br>
+<%= f.text_area :content %></p><br>
 
 <%= f.hidden_field :user_id, value: user.id%>
 <%= f.hidden_field :ride_id, value: ride.id %>
 
-<%= f.submit %>
+<%= f.submit class: "btn btn-primary btn-xl"%>

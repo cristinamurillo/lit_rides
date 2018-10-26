@@ -26,7 +26,7 @@
       <% end %>
     <% end %>
  <% elsif @user.has_ride?(@ride)%>
-    class= "btn btn-xl btn-outline-light"
+    
     <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers", :class=> "btn btn-xl btn-outline-light"%>
 
  <% end%>
