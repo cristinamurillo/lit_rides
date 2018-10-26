@@ -12,7 +12,7 @@
           <h3><%= "Passengers who want to get Lit:" %></h3>
           <% @ride.passenger_rides.each do |pass_ride| %>
             <%= link_to pass_ride.passenger.full_name, pass_ride.passenger %>
-            <!-- <p><%#= pass_ride.message %></p> -->
+            <p><= pass_ride.message %></p>
           <% end %>
         <% end %>
     <% else %>
@@ -24,8 +24,6 @@
  <% elsif @user.has_ride?(@ride)%>
     class= "btn btn-xl btn-outline-light"
     <%= link_to "Review Fellow Travelers", "/rides/#{@ride.id}/travelers", :class=> "btn btn-xl btn-outline-light"%>
-    
+
  <% end%>
  </div>
-
-

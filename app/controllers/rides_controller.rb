@@ -2,30 +2,31 @@ class RidesController < ApplicationController
 
   def index
     #date filter (search by date)
-    if params[:date]
-      ride_dates = Ride.date_filter(params[:date])
-      @rides = Ride.date_filter(params[:date])
-    end
+    # if params[:date]
+    #   ride_dates = Ride.date_filter(params[:date])
+    #   @rides = Ride.date_filter(params[:date])
+    # end
 
     if params[:search]
       ride_search = Ride.search(params[:search])
       @rides = Ride.search(params[:search])
     end
 
-    if ride_search && ride_dates
-      @rides = ride_dates & ride_search
-    end
+    # if ride_search && ride_dates
+    #   @rides = ride_dates & ride_search
+    # end
 
     if @rides == nil
       # flash[:message] = "nope"
       @rides = Ride.all
+      # upcoming_rides(@rides)
     end
 
     @rides = upcoming_rides(@rides)
 
 
     params.delete :search
-    params.delete :date
+    # params.delete :date
   end
 
   def apply
@@ -35,7 +36,7 @@ class RidesController < ApplicationController
   def add_passenger
     @user = User.find(logged_in_user_id)
     @ride = set_ride #set_ride as before_action
-    # @passenger_ride = PassengerRide.create(user: @user, ride: @ride, message: params[:message])
+    @passenger_ride = PassengerRide.create(user: @user, ride: @ride, message: params[:message])
     @ride.available_seats -= 1
     @ride.save
     # @passenger_ride.message = params[:message]
@@ -59,6 +60,7 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     @ride.driver_id = logged_in_user_id
+    byebug
     if @ride.valid?
       @ride.save
       redirect_to @ride

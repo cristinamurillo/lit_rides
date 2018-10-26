@@ -1,11 +1,12 @@
 <section class="portfolio" id="portfolio">
-  <div class = container>
+  <div class = "container">
     <div class = "row">
       <div class="col-lg-8 mx-auto center">
-        <h2 class="text-center text-uppercase text-secondary mb-0"> Browse Rides </h2><br><br>
+        <h2 class="text-center text-uppercase text-secondary mb-0"> Where You Wanna Get Lit Tho? </h2><br><br>
+          <h3> Get Scooped:</h3>
         <%= form_tag(rides_path, method: :get) do %>
           <%= text_field_tag :search, params[:search] %>
-          <%= date_select(:date, start_year: Time.now.year, include_blank: true)%>
+          <!-- <%= date_select(:date, start_year: Time.now.year, include_blank: true)%> -->
 
           <%= submit_tag 'Search' %>
         <% end %>

@@ -30,14 +30,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.valid?
-      @user.save
-      log_in_user(@user.id)
-      redirect_to "/users/#{@user.id}/main_page"
-    else
-      flash[:errors] = @user.errors.full_messages
-      redirect_to new_user_path
-    end
+    # if params[:password] == params[:password_confirmation]
+      if @user.valid?
+        @user.save
+        log_in_user(@user.id)
+        redirect_to "/users/#{@user.id}/main_page"
+      else
+        flash[:errors] = @user.errors.full_messages
+        redirect_to new_user_path
+      end
+    # else
+    #   flash[:errors] = "That don't match, son"
+    #   render :new
+    # end
   end
 
   def edit
