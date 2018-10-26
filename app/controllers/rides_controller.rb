@@ -61,6 +61,8 @@ class RidesController < ApplicationController
     # @review = Review.new
   end
 
+
+
   def create
     @ride = Ride.new(ride_params)
     byebug
