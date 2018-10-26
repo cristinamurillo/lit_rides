@@ -648,7 +648,7 @@ html {
   .col-lg-4 {
     -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
-    max-width: 33.333333%;
+    max-width: 40%;
   }
   .col-lg-5 {
     -ms-flex: 0 0 41.666667%;

@@ -1,58 +1,78 @@
-<h1><%= @user.full_name %></h1>
-<h2><%= @user.age %> years old</h2>
+<div class = "container">
+    <h1><%= @user.full_name %></h1>
+    <hr>
+    <div class = "row">
+        <div class= "col-md-6">
+            <div class ="portfolio-item d-block mx-auto">
+                
+                <h4><%= @user.age %> years old</h4><br>
+                <h4>About Me:</h4>
+                <p class ="lead"><%= @user.about_me %></p>
 
-<h2>About Me:</h2>
-<p><%= @user.about_me %></p>
+                <h4>Lit Ride:</h4> <p class ="lead"><%= @user.car_type %></p>
 
-<h2>Lit Ride: <%= @user.car_type %></h2>
+                <h4>Preferences:</h4>
+                <ul>
+                    <li><p class = "lead"> Smoker?
+                    <% if @user.smoking %>
+                        <%= "🚬 "%>
+                        <% else %>
+                        <%= "🙅‍"%></li>
+                    <% end %></p>
+                   <li> <p class = "lead"> Pets?
+                    <% if @user.pets %>
+                    <%= "🐶 "%>
+                    <% else %>
+                    <%= "💀"%>
+                    <% end %></p></li>
+                    <li><p class = "lead"> How Lit?
+                    <% case @user.engagement %>
+                    <% when 1 %>
+                    <%= "🔥"%>
+                    <% when 2 %>
+                    <%= "🔥🔥"%>
+                    <% when 3 %>
+                    <%= "🔥🔥🔥"%>
+                    <% end %></p></li>
+                </ul>
+            </div>
+        </div>
+        <div class = "row">
+            <div class ="portfolio-item d-block mx-auto">
+                <% unless @user.upcoming_drives.empty? %>
+               
+                <h4> Upcoming Drives </h4>
+                <% @user.upcoming_drives.each do |ride| %>
+                    <%= render partial: '/users/rides', :locals => {:ride => ride} %>
+                <% end %>
+                
+                <% end%>
+            </div>
+        </div>
+    </div>
+    <hr>
 
-<h2>Preferences:</h2>
-<p> Smoker?
-<% if @user.smoking %>
-    <%= "🚬 "%>
-    <% else %>
-    <%= "🙅‍"%>
-<% end %></p>
-<p> Pets?
-<% if @user.pets %>
-  <%= "🐶 "%>
-  <% else %>
-  <%= "💀"%>
-<% end %></p>
-<p> How Lit?:
-<% case @user.engagement %>
-  <% when 1 %>
-  <%= "🔥"%>
-  <% when 2 %>
-  <%= "🔥🔥"%>
-  <% when 3 %>
-  <%= "🔥🔥🔥"%>
-<% end %></p>
-
-<% unless @user.upcoming_drives.empty? %>
-  <h2> Upcoming Drives </h2>
-  <% @user.upcoming_drives.each do |ride| %>
-      <%= render partial: '/users/rides', :locals => {:ride => ride} %>
-  <% end %>
-<% end%>
-
-<hr>
-
-<h2> Reviews </h2>
-<% @user.reviews.each do |review|%>
-<ul>
-  <%= link_to review.title, review %> Rating:
-  <% case review.rating%>
-  <% when 1%>
-     <h2> <%= "💩 "%></h2>
-  <% when 2%>
-      <h2><%= "😷😷" %></h2>
-  <% when 3%>
-      <h2><%= "😐😐😐" %></h2>
-  <% when 4%>
-      <h2><%= "💁💁💁💁" %></h2>
-  <% when 5%>
-      <h2><%= "💃💃💃💃💃" %></h2>
-  <% end%>
-</ul>
-<% end%>
+    <h2> Reviews </h2>
+    <% unless @user.reviews.empty?%>
+        <% @user.reviews.each do |review|%>
+        <ul>
+        <%= link_to review.title, review %> Rating:
+        <% case review.rating%>
+        <% when 1%>
+            <h2> <%= "💩 "%></h2>
+        <% when 2%>
+            <h2><%= "😷😷" %></h2>
+        <% when 3%>
+            <h2><%= "😐😐😐" %></h2>
+        <% when 4%>
+            <h2><%= "💁💁💁💁" %></h2>
+        <% when 5%>
+            <h2><%= "💃💃💃💃💃" %></h2>
+        <% end%>
+        </ul>
+        <% end%>
+    <% else%>
+        <h6><%= "No Reviews Yet" %></h6>
+    <% end%>
+    
+</div>
