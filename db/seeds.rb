@@ -40,16 +40,18 @@ end
   )
 end
 
-# 50.times do
-#   Review.create(
-#     title: Faker::Hipster.sentence,
-#     rating: Faker::Number.between(1, 5),
-#     content: Faker::Hipster.paragraph,
-#     ride_id: Faker::Number.between(1, 40)
-#     user_id:
-#   )
-
-# end
+50.times do
+  ride_id = Faker::Number.between(1, 40)
+  ride = Ride.find(ride_id)
+  user_id = ride.driver_id 
+  Review.create(
+    title: Faker::Hipster.sentence,
+    rating: Faker::Number.between(1, 5),
+    content: Faker::Hipster.paragraph,
+    ride_id: ride_id, 
+    user_id: user_id 
+  )
+end
 
 
 puts "hi"

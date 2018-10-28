@@ -53,12 +53,31 @@
     <hr>
 
     <h3 class ="text-center text-uppercase text-secondary mb-0"> Reviews </h3><br>
-    <% if @user.reviews.empty? %>
-        <h4><%= "No Reviews Yet" %></h4>
-    <% else %>
-        <% @user.reviews.each do |review|%>
-            Review: <%= link_to review.title, review %> Rating: <%= review.rating %>
-        <% end%>
-    <% end %>
+    <%#this is repeat code... create a reviews partial for main_page and show%>
+    <% unless @user.reviews.empty?%>
+        <ul>
+            <% @user.reviews.each do |review|%>
+            <li>
+            <p class ="lead"><%= link_to review.title, review %> <br>Rating:
+                <% case review.rating%>
+                <% when 1%>
+                    <%= "💩 "%>
+                <% when 2%>
+                    <%= "😷😷" %>
+                <% when 3%>
+                    <%= "😐😐😐" %>
+                <% when 4%>
+                    <%= "💁💁💁💁" %>
+                <% when 5%>
+                    <%= "💃💃💃💃💃" %>
+                <% end%>
+
+            <% end%></p>
+            </li>
+        </ul>
+    <% else%>
+        <h5 class="text-secondary"><%= "No Reviews Yet" %></h5>
+    <% end%>
+    <br><br><br>
 <br><br>
 </div>
