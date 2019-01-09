@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "bebas";
+    src: url('BebasNeue-Bold.ttf') format('truetype');
+    src: url('BebasNeue-Bold.otf') format('truetype');
+  }
+
+h1 {
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-weight: bolder; */
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body::after {
+    content: "";
+    background: url('highway_top.jpg');
+    background-size: cover;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+.car-icon {
+    max-height: 20vh;
+}
+button {
+    background: blue;
+}
+
+input {
+    padding: .85em;
+    border-radius: 6px;
+    border: none;
+    margin: .8em .4em;
+    box-shadow: 0 0 2px 0.5px #161616;
+    background: rgba(245,245,245,.7);
+}
+
+.submit-btn:hover {
+    background: black;
+    color: white;
+    transition: all .5s;
+}
+
+.centered {
+    text-align: center
+}
+
+.container {
+    margin: 2em 3em;
+}

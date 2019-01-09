@@ -1,8 +1,8 @@
-<h2 class="text-center text-uppercase text-secondary mb-0"> Welcome <%= @user.first_name %>!</h2><br>
+<h2 class="centered"> Welcome <%= @user.first_name %>!</h2><br>
 
 <div class = "container">
        
-        <h5 class= "text-center"><%= link_to "View Profile", @user %> 
+        <h5 class= "centered"><%= link_to "View Profile", @user %> 
         --- <%= link_to "Edit Profile", edit_user_path(@user) %> --- 
         <%= link_to "Edit Account", account_path %></h5>
 
