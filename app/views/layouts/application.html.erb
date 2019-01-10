@@ -24,10 +24,15 @@
   <body id="page-top">
   <%#Navigation bar%>
       <!-- Navigation -->
-    <nav class="" id="">
+
       <div class="">
+      <%= image_tag("lit_ride.png", class: "car-icon")  %>
           <ul class="nav">
-              <li id="nav-logo"><a href="/">Lit Rides</a></li>
+              <li id="nav-logo">
+              <a href="/">LIT RIDES</a> 
+              
+              </li>
+            
             <li class="">
               <% if session[:user_id] != nil %>
 
@@ -49,7 +54,7 @@
           </ul>
         
       </div>
-    </nav>
+ 
 <%#nav bar ends%>
     <header>
     <%#more stuff from template%>

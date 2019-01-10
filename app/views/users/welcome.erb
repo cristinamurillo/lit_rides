@@ -1,14 +1,14 @@
 
-    <header class="">
+
       <div class="">
-      <%= image_tag("lit_ride.png", class: "car-icon")  %>
-        <h1 class="text-uppercase mb-0">GET A LIT RIDE</h1>
+     
+        <h1 class="centered title">GET A LIT RIDE</h1>
         
         <% if session[:user_id]==nil%>
         <h1 class = ""><%= link_to "Sign Up", new_user_path, class: ""%></h1>
         <% end%>
       </div>
-    </header>
+    
 
 
 <%# if session[:user_id] == nil %>
