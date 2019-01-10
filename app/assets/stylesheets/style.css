@@ -17,6 +17,7 @@ html {
 
 body {
     height: 100%;
+    margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -33,26 +34,88 @@ body::after {
     z-index: -1;   
   }
 
+/* nav bar */
+
+ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: .5em auto;
+    background-color: #222;
+    box-shadow: 0 0 2px 1px whitesmoke;
+    /* text-align: right; */
+    height: 8vh;
+    overflow: hidden;
+  }
+
+ul.nav li {
+    margin: 0 .5em;
+    float: right;
+}
+
+ul.nav a {
+    display: block;
+    color: white;
+    font-weight: bold;
+    padding: 1em .5em;
+    text-align: center;
+    text-decoration: none;
+}
+ul.nav a:hover {
+    color: rgb(51, 255, 143);
+    transition: all .5s;
+}
+
+li#nav-logo {
+    float: left;
+}
+
 .car-icon {
     max-height: 20vh;
+    
 }
 button {
     background: blue;
 }
 
-input {
+input, select {
     padding: .85em;
     border-radius: 6px;
     border: none;
     margin: .8em .4em;
     box-shadow: 0 0 2px 0.5px #161616;
     background: rgba(245,245,245,.7);
+    font-size: 1.8vh;
 }
 
+select {
+    height: 5vh;
+}
+.submit-btn {
+    width: 20vh;
+    height: 6vh;
+    font-size: medium;
+    font-weight: bold;
+}
 .submit-btn:hover {
     background: black;
     color: white;
+    cursor: pointer;
     transition: all .5s;
+}
+
+.gen-btn {
+    width: 30vh;
+    height: 8vh;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.gen-btn:hover {
+    box-shadow: 0 0 4px .5px rgb(199, 199, 199);
+    background: rgba(117, 242, 247, .8);
+    transform: translateY(-.2em);
+    transition: all .5s;
+    cursor: pointer;
 }
 
 .centered {
@@ -62,3 +125,4 @@ input {
 .container {
     margin: 2em 3em;
 }
+

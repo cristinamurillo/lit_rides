@@ -1,4 +1,4 @@
-<h2 class="centered"> Welcome <%= @user.first_name %>!</h2><br>
+<h2 class="centered"> Welcome <%= @user.first_name %>!</h2>
 
 <div class = "container">
        
@@ -9,7 +9,8 @@
     <hr>
 
     <%#Driver Menu and Actions%>
-    <h3 class ="text-center text-uppercase text-secondary mb-0">Driver</h3><br>
+    <div id="driver">
+    <h3 class ="centered">DRIVER</h3><br>
 
     <% if @user.upcoming_drives.empty?%>
     <h4><%= "No Upcoming Drives" %></h4>
@@ -24,15 +25,16 @@
     <% if @user.past_drives.empty? %>
         <h4><%= "No Past Drives" %></h4>
     <% else%>
-        <h4><%= link_to "Past Drives", past_drives_path(@user) %></h4>
+        <h4><%= button_to "Past Drives", past_drives_path(@user), :method => :get, class: "gen-btn" %></h4>
     <% end%>
-    <br>
-    <h5><%= link_to "Post a Drive", new_ride_path, class: "btn btn-primary btn-xl" %></h5>
-
+    
+    <h5><%= button_to "Post a Drive", new_ride_path, :method => :get, class: "gen-btn" %></h5>
+    </div>
     <hr>
 
     <%#Passenger Menu and Actions%>
-    <h3 class ="text-center text-uppercase text-secondary mb-0">Passenger</h3><br>
+    <div id="passenger">
+    <h3 class ="centered">PASSENGER</h3><br>
 
     <% if @user.upcoming_rides.empty?%>
         <h4><%= "No Upcoming Rides" %></h4>
@@ -47,12 +49,12 @@
     <% if @user.past_rides.empty?%>
         <h4><%= "No Past Rides" %></h4>
     <% else%>
-        <h4><%= link_to "Past Rides", past_rides_path(@user) %></h4>
+        <h4><%= button_to "Past Rides", past_rides_path(@user), :method => :get, class:"gen-btn" %></h4>
     <% end%>
-
+    </div>
     <hr>
 
-    <h3 class ="text-center text-uppercase text-secondary mb-0"> Reviews </h3><br>
+    <h3 class ="centered"> REVIEWS </h3><br>
     <%#this is repeat code... create a reviews partial for main_page and show%>
     <% unless @user.reviews.empty?%>
         <ul>

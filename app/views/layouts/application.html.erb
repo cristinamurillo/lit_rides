@@ -16,40 +16,18 @@
     <link href="/assets/style.css" media="screen" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
-    
-
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Plugin CSS -->
-
-    <!-- Custom styles for this template -->
-
 
   </head>
 
   <body id="page-top">
   <%#Navigation bar%>
       <!-- Navigation -->
-    <nav class="navbar" id="mainNav">
-      <div class="container">
-        <a class="" href="/">Lit Rides</a>
-        <button class="" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-        </button>
-        <div class="" id="navbarResponsive">
-          <ul class="">
-              <% if session[:user_id] != nil %>
-                <li class=""> 
-                <%= link_to 'Dashboard', "/users/#{session[:user_id]}/main_page", class: ""%>
-                </li>
-              <% end%>
-            
-            <li class="">
-              <a class="" href="/rides">Browse</a>
-            </li>
+    <nav class="" id="">
+      <div class="">
+          <ul class="nav">
+              <li id="nav-logo"><a href="/">Lit Rides</a></li>
             <li class="">
               <% if session[:user_id] != nil %>
 
@@ -59,8 +37,17 @@
                 <%= link_to 'Log In', login_path, class: ""  %>
               <% end%>
             </li>
+            
+            <li class="">
+              <a class="" href="/rides">Browse</a>
+            </li>
+            <% if session[:user_id] != nil %>
+              <li class=""> 
+              <%= link_to 'Dashboard', "/users/#{session[:user_id]}/main_page", class: ""%>
+              </li>
+            <% end%>
           </ul>
-        </div>
+        
       </div>
     </nav>
 <%#nav bar ends%>

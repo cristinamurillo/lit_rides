@@ -1,9 +1,9 @@
 
 <div class="container">
 
-<h2 class="text-uppercase text-secondary mb-0"> Ride </h2><hr>
+<h2 class=""> Ride </h2><hr>
 <%= render partial: 'display', :locals => {:ride => @ride} %>
-<br><br>
+
 <% if @ride.time > DateTime.now && @ride.has_seats?%>
     <% if @user == @ride.driver %>
         <% if @ride.passengers.empty? %>
@@ -17,8 +17,8 @@
               <% end %>
         <% end %>
       <% end %>
-        <%= button_to "Edit Ride", edit_ride_path(@ride), method: :get, class: "btn btn-primary" %><br>
-        <%= button_to "Delete Ride", "/rides/#{@ride.id}/destroy", method: :delete , class: "btn btn-primary" %><br>
+        <%= button_to "Edit Ride", edit_ride_path(@ride), method: :get, class: "submit-btn" %><br>
+        <%= button_to "Delete Ride", "/rides/#{@ride.id}/destroy", method: :delete , class: "submit-btn" %><br>
        
     <% elsif @ride.passengers.include?(@user) %>
         <%= "You're already going on this ride! Get lit! 🤙 " %>
