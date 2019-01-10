@@ -13,10 +13,13 @@ h1 {
 }
 
 .title {
-    margin-top: 14vh;
+    margin-top: 10vh;
+    margin-bottom: 0;
     font-size: 15em;
     color: black;
-    text-shadow: 0px 0px 18px white;
+    text-shadow: 2px 2px 10px rgb(130, 234, 224);
+    background: rgba(245, 245, 245, 0.685);
+    padding-top: 5vh;
 }
 
 html {
@@ -90,9 +93,30 @@ li#nav-logo {
     transform: scaleX(-1);
     
 }
-button {
-    background: blue;
+
+.wheel-icon {
+    height: 30vh;
+    animation: 5s infinite linear rotate; 
 }
+
+@keyframes rotate {
+    0% {
+        transform: rotate(30deg)
+    } 50% {
+        transform: rotate(-30deg)
+    } 100% {
+        transform: rotate(30deg)
+    }
+}
+
+.sign-up input{
+    /* font-family: 'Quicksand', sans-serif; */
+    font-size: 4vh;
+    padding: .7vh;
+    font-weight: bold;
+    margin: 0;
+}
+
 
 input, select {
     padding: .85em;
@@ -129,7 +153,7 @@ select {
 
 .gen-btn:hover {
     box-shadow: 0 0 4px .5px rgb(199, 199, 199);
-    background: rgba(117, 242, 247, .8);
+    background: rgba(92, 255, 141, 0.8);
     transform: translateY(-.2em);
     transition: all .5s;
     cursor: pointer;

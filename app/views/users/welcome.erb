@@ -1,11 +1,12 @@
 
 
-      <div class="">
+      <div class="centered">
      
         <h1 class="centered title">GET A LIT RIDE</h1>
-        
+         <%= image_tag("steering_wheel.png", class: "wheel-icon")  %>
         <% if session[:user_id]==nil%>
-        <h1 class = ""><%= link_to "Sign Up", new_user_path, class: ""%></h1>
+         
+        <h1 class = "centered sign-up"><%= button_to "SIGN UP", new_user_path, method: :get, class: "gen-btn"%></h1>
         <% end%>
       </div>
     
